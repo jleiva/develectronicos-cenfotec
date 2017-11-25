@@ -1,37 +1,41 @@
 package com.cenfotec.develectronicos.entities;
 
-import java.time.LocalDateTime;
-import java.util.Vector;
-
 public abstract class Tramite {
-	/* date/time a document was created*/
-	public abstract LocalDateTime getCreated();
+	Departamento dept;
+	Documento doc = null;
 	
-	 /* names of the people who have saved a document.*/
-	public abstract Vector<String> getAuthors();
+	public Tramite() {
+		this.doc = new Documento();
+	}
 	
-	/* is a response to another document */
-	public abstract boolean isResponse();
+	public Tramite(Documento doc) {
+		this.doc = doc;
+	}
 	
-	/* indicates whether a document is encrypted.*/
-	public abstract boolean isEncrypted();
+	public abstract void encryptMessage();
 	
-	/* creates a new document that is formatted as a reply to the current document.*/
-	public abstract Tramite createReplyMessage();
+	public abstract void decryptMessage();
 	
-	/* Marks the document as read.*/
-	public abstract void markRead(final String username);
+	public abstract void save();
 	
-	/* saves any changes you have made to a document*/
-	public abstract boolean save();
+	// OrdenVenta
+	// 1 iniciarTramiteVentaProducto(prodId) { new Documento() }
+	// 2 encriptarMens(mens, idDeF)
+	// 3 save - send
+	// 3 consultarInventario(prodId)
+	// 4
+	// 5 
 	
-	/* */
-	public abstract void setEncrypted();
 	
-	/* encrypts a document.*/
-	public abstract void encrypt();
+	////////////////
+	// Manager 
+	// pubK = getKeysPub(Daniel)
+	// encryp(pubK, mes)
+	// pubK = getKeysPub(Daniel)
+	// descryp(pubK, mes)
 	
-	/* decrypt a document.*/
-	public abstract void decrypt();
-
+	
+	//////////
+	// Listado Invent
+	// 1 desencri(idDept)
 }
