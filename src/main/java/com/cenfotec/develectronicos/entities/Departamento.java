@@ -1,5 +1,14 @@
 package com.cenfotec.develectronicos.entities;
 
+// Crear las clases por Departamento
+// Ventas
+// Bodega
+// Contabilidad
+
+// Recomendacion usar Herencia
+// Analizar si cada Departamento debe tener un atributo de tipo Tramite
+// donde cree el tipo de Tramite especifico que administra
+
 public class Departamento {
 	String idDept = "";
 	String nombreDept = "";

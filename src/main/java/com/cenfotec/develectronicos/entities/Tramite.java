@@ -1,5 +1,15 @@
 package com.cenfotec.develectronicos.entities;
 
+// Recomendacion usar herencia
+// Tipos de Tramite:
+// VentaProducto
+// ConsultaInventario
+// EntregaProducto
+// Facturacion
+
+// Incluir los pasos de cada tramite como metodos. 
+// Recomendacion, usar patron estado
+
 public abstract class Tramite {
 	Departamento dept;
 	Documento doc = null;
