@@ -1,4 +1,6 @@
+# Maven
 target/
+log/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -8,6 +10,7 @@ target/
 .project
 .settings
 .springBeans
+pom.xml
 
 ### IntelliJ IDEA ###
 .idea
