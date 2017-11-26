@@ -2,13 +2,6 @@ package com.cenfotec.develectronicos.entities;
 
 import java.time.LocalDateTime;
 
-// Recomendacion usar decorador
-// Tipos de Documentos:
-// OrdenCompra
-// OrdenFacturacion
-// OrdenEntrega
-// OrdenInventario
-
 public class Documento {
 	String idDoc = "";
 	String tipoTramite = "";
