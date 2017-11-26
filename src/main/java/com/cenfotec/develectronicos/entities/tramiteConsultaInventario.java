@@ -1,16 +1,13 @@
 package com.cenfotec.develectronicos.entities;
 
-public class tramiteConsultaInventario extends Tramite {
-
+public class TramiteConsultaInventario extends Tramite {
 	
-	
-	
-	public tramiteConsultaInventario() {
+	public TramiteConsultaInventario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public tramiteConsultaInventario(Documento doc) {
+	public TramiteConsultaInventario(Documento doc) {
 		super(doc);
 		// TODO Auto-generated constructor stub
 	}
