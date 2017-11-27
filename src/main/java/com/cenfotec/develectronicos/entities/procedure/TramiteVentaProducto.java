@@ -1,4 +1,4 @@
-package com.cenfotec.develectronicos.entities.Procedure;
+package com.cenfotec.develectronicos.entities.procedure;
 
 import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Tramite;
