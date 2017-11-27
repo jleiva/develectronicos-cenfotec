@@ -1,14 +1,23 @@
 package com.cenfotec.develectronicos.entities;
 
 public abstract class Tramite {
-	Departamento dept;
-	Documento doc = null;
+	private Departamento dept;
+	private Documento doc = null;
 	
 	public Tramite() {
 		this.doc = new Documento();
 	}
 	
 	public Tramite(Documento doc) {
+		this.doc = doc;
+	}
+	
+	public Documento getDoc() {
+		return doc;
+	}
+
+
+	private void setDoc(Documento doc) {
 		this.doc = doc;
 	}
 	
