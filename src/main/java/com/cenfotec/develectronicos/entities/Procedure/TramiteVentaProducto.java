@@ -1,16 +1,16 @@
-package com.cenfotec.develectronicos.entities;
+package com.cenfotec.develectronicos.entities.Procedure;
 
-public class tramiteVentaProducto extends Tramite {
+import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Tramite;
 
-	
-	
-	
-	public tramiteVentaProducto() {
+public class TramiteVentaProducto extends Tramite {
+
+	public TramiteVentaProducto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public tramiteVentaProducto(Documento doc) {
+	public TramiteVentaProducto(Documento doc) {
 		super(doc);
 		// TODO Auto-generated constructor stub
 	}
