@@ -1,6 +1,7 @@
-package com.cenfotec.develectronicos.entities.tramite;
+package com.cenfotec.develectronicos.entities.Procedure;
 
 import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Tramite;
 
 public class TramiteConsultaInventario extends Tramite {
 	
