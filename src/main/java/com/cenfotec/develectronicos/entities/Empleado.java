@@ -38,4 +38,10 @@ public class Empleado {
 		this.idDept = idDept;
 	}
 	
+	public String toString(){
+        return this.nombre + " " + this.apellido + "\n" + 
+        		"ID: " + this.id + "\n" +
+        		"Departamento: " + this.idDept;
+    }
+	
 }
