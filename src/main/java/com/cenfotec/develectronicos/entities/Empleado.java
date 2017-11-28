@@ -6,6 +6,13 @@ public class Empleado {
 	private String id;
 	private String idDept;
 	
+	public Empleado(String nombre, String apellido, String id, String idDept){
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.id = id;
+		this.idDept = idDept;
+	}
+	 
 	public String getNombre() {
 		return nombre;
 	}
@@ -20,22 +27,6 @@ public class Empleado {
 	
 	public String getIdDept() {
 		return idDept;
-	}
-	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public void setIdDept(String idDept) {
-		this.idDept = idDept;
 	}
 	
 	public String toString(){
