@@ -11,9 +11,9 @@ public class MongoDocumentoDAO extends DocumentoDAO {
 	}
 
 	@Override
-	public int insert(Documento document) {
+	public boolean insert(Documento document) {
 		// TODO Auto-generated method stub
-		return 0;
+		return false;
 	}
 
 	@Override
