@@ -21,12 +21,12 @@ public class JsonDocumentoDAO implements DocumentoDAO {
 	
 	private byte[] readBytesFile(String messageName) throws Exception{
 		File file = new File(PATH + messageName + FILE_EXTENSION);
-        int length = (int) file.length();
-        BufferedInputStream reader = new BufferedInputStream(new FileInputStream(file));
-        byte[] bytes = new byte[length];
-        reader.read(bytes, 0, length);
-        reader.close();
-        Decoder oneDecoder = Base64.getDecoder();
+		int length = (int) file.length();
+		BufferedInputStream reader = new BufferedInputStream(new FileInputStream(file));
+		byte[] bytes = new byte[length];
+		reader.read(bytes, 0, length);
+		reader.close();
+		Decoder oneDecoder = Base64.getDecoder();
 		return oneDecoder.decode(bytes);
 	}
 
@@ -63,7 +63,7 @@ public class JsonDocumentoDAO implements DocumentoDAO {
 	@Override
 	public boolean delete(String documentoId) {
 		File file = new File(PATH + documentoId + FILE_EXTENSION);
-        return file.delete();
+		return file.delete();
 	}
 
 
