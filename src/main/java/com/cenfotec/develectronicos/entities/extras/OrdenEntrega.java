@@ -6,6 +6,10 @@ public class OrdenEntrega extends DecoradorDocumento{
 
 	private Documento doc;
 
+	public OrdenEntrega(Documento doc) {
+		this.doc = doc;
+	}
+
 	public Documento getDoc() {
 		return doc;
 	}
@@ -13,5 +17,5 @@ public class OrdenEntrega extends DecoradorDocumento{
 	public void setDoc(Documento doc) {
 		this.doc = doc;
 	}
-	
+
 }

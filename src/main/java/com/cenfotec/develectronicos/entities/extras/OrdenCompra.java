@@ -6,6 +6,10 @@ public class OrdenCompra extends DecoradorDocumento{
 
 	private Documento doc;
 
+	public OrdenCompra(Documento doc) {
+		this.doc = doc;
+	}
+
 	public Documento getDoc() {
 		return doc;
 	}
