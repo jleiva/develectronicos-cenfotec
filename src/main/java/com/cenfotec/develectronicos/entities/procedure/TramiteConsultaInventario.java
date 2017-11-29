@@ -21,7 +21,7 @@ public class TramiteConsultaInventario extends Tramite {
 		finalizarTramiteConsultaInventario = new FinalizarTramiteConsultaInventarioState(this);
 		inicioTramiteConsultaInventario = new InicioTramiteConsultaInventarioState(this);
 		
-		state = inicioTramiteConsultaInventario;
+		setPasoActual();
 	}
 
 	public TramiteConsultaInventario(Documento doc) {
@@ -30,7 +30,22 @@ public class TramiteConsultaInventario extends Tramite {
 		finalizarTramiteConsultaInventario = new FinalizarTramiteConsultaInventarioState(this);
 		inicioTramiteConsultaInventario = new InicioTramiteConsultaInventarioState(this);
 		
-		state = inicioTramiteConsultaInventario;
+		setPasoActual();
+	}
+	
+	@Override
+	protected void setPasoActual() {
+		switch(doc.pasoActual) {
+		case 1:
+			state = inicioTramiteConsultaInventario;
+			break;
+		case 2:
+			state = consultaInventarioState;
+			break;
+		case 3:
+			state = finalizarTramiteConsultaInventario;
+			break;
+		}
 	}
 	
 	public void iniciarTramite() {
@@ -64,6 +79,12 @@ public class TramiteConsultaInventario extends Tramite {
 	public void save() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void iniciar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

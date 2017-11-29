@@ -16,6 +16,21 @@ public class TramiteVentaProducto extends Tramite {
 	}
 
 	@Override
+	protected void setPasoActual() {
+//		switch(doc.pasoActual) {
+//		case 1:
+//			state = inicioTramiteConsultaInventario;
+//			break;
+//		case 2:
+//			state = consultaInventarioState;
+//			break;
+//		case 3:
+//			state = finalizarTramiteConsultaInventario;
+//			break;
+//		}
+	}
+	
+	@Override
 	public void encryptMessage() {
 		// TODO Auto-generated method stub
 
@@ -31,6 +46,12 @@ public class TramiteVentaProducto extends Tramite {
 	public void save() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void iniciar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -8,6 +8,7 @@ public class Documento {
 	 String responsable = "";
 	 String productId = "";
 	 String stockStatus = "";
+	 public int pasoActual;
 	 LocalDateTime fechaCreacion = null;
  
 	 public String getIdDoc() {

@@ -2,7 +2,7 @@ package com.cenfotec.develectronicos.entities;
 
 public abstract class Tramite {
 	private Departamento dept;
-	private Documento doc = null;
+	protected Documento doc = null;
 	
 	public Tramite() {
 		this.doc = new Documento();
@@ -10,21 +10,21 @@ public abstract class Tramite {
 	
 	public Tramite(Documento doc) {
 		this.doc = doc;
+		
 	}
 	
 	public Documento getDoc() {
 		return doc;
 	}
-
-
-	private void setDoc(Documento doc) {
-		this.doc = doc;
-	}
 	
+	protected abstract void setPasoActual();
+
 	public abstract void encryptMessage();
 	
 	public abstract void decryptMessage();
 	
 	public abstract void save();
+	
+	public abstract void iniciar();
 	
 }
