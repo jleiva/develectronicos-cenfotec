@@ -14,8 +14,4 @@ public class OrdenEntrega extends DecoradorDocumento{
 		return doc;
 	}
 
-	public void setDoc(Documento doc) {
-		this.doc = doc;
-	}
-
 }

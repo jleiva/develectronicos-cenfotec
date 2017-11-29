@@ -11,28 +11,13 @@ public class OrdenInventario extends DecoradorDocumento {
 		this.doc = doc;
 		this.stockStatus = stockStatus;
 	}
-	
-	public boolean getStockStatus() {
-		return stockStatus;
-	}
-	
-	public void setStockStatus(boolean stockStatus) {
-		this.stockStatus = stockStatus;
-	}
-	
-	public Documento getDoc() {
-		return doc;
-	}
-	
-	public void setDoc(Documento doc) {
-		this.doc = doc;
-	}
+
 	
 	@Override
 	public String toString() {
 		String mensaje;
 		String estado;
-		if(this.getStockStatus()) {
+		if(this.stockStatus) {
 			estado="Disponible";
 		}else {
 			estado="Agotado";

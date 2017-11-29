@@ -12,23 +12,7 @@ public class OrdenFacturacion extends DecoradorDocumento{
 		this.idCliente = idCliente;
 	}
 
-	public Documento getDoc() {
-		return doc;
-	}
-
-	public void setDoc(Documento doc) {
-		this.doc = doc;
-	}
-
 	public OrdenFacturacion(String idCliente) {
-		this.idCliente = idCliente;
-	}
-
-	public String getIdCliente() {
-		return idCliente;
-	}
-
-	public void setIdCliente(String idCliente) {
 		this.idCliente = idCliente;
 	}
 
@@ -36,7 +20,7 @@ public class OrdenFacturacion extends DecoradorDocumento{
 	public String toString() {
 		String mensaje;
 		mensaje= super.toString() + "\n"+
-				"Id del cliente"+ this.getIdCliente();		
+				"Id del cliente"+ this.idCliente;		
 		return mensaje;
 	}
 	

@@ -13,10 +13,5 @@ public class OrdenCompra extends DecoradorDocumento{
 	public Documento getDoc() {
 		return doc;
 	}
-
-	public void setDoc(Documento doc) {
-		this.doc = doc;
-	}
-	
 	
 }
