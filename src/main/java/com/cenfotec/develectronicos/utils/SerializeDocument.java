@@ -1,6 +1,5 @@
 package com.cenfotec.develectronicos.utils;
 
-import java.io.FileReader;
 import com.google.gson.Gson;
 import com.cenfotec.develectronicos.entities.Documento;
 
@@ -11,7 +10,7 @@ public class SerializeDocument {
 		return gson.toJson(doc);
 	}
 	
-	public static Documento fromJSON(FileReader jsonFile) {
+	public static Documento fromJSON(String jsonFile) {
 		return gson.fromJson(jsonFile, Documento.class);
 	}
 }
