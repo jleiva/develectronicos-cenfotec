@@ -19,9 +19,9 @@ public class GestorConsultaInventario {
 		return 0;
 	}
 
-	public Object getOrden(int idOrden) {
+	public int getOrden(int idOrden) {
 		// TODO Auto-generated method stub
-		return null;
+		return 1;
 	}
 
 }

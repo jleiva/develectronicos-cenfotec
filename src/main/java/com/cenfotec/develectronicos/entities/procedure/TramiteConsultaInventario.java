@@ -63,7 +63,7 @@ public class TramiteConsultaInventario extends Tramite {
 		return state;
 	}
 
-	void setState(StateConsultaInventario state) {
+	public void setState(StateConsultaInventario state) {
 		this.state = state;
 	}
 

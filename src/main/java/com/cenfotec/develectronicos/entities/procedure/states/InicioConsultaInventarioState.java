@@ -14,10 +14,11 @@ public class InicioConsultaInventarioState implements StateConsultaInventario {
 	
 	@Override
 	public void iniciarTramite() {
+		System.out.println("Iniciando tramite, espere por favor....");
 		GestorConsultaInventario gestor = new GestorConsultaInventario();
 		int idOrden = gestor.createOrden(tramiteInventario.getDoc());
-		if(gestor.getOrden(idOrden) != null) {
-			this.tramiteInventario.getConsultaInventarioState();
+		if(gestor.getOrden(idOrden) != 0) {
+			this.tramiteInventario.setState(this.tramiteInventario.getConsultaInventarioState());
 		}
 	}
 

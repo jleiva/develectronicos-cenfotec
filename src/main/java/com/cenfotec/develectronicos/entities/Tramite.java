@@ -9,7 +9,6 @@ public abstract class Tramite {
 	
 	public Tramite(Documento doc) {
 		this.doc = doc;
-		
 	}
 	
 	public Documento getDoc() {

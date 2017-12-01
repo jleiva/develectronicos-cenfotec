@@ -69,6 +69,14 @@ public class Documento {
 	public void setEstado(EnumEstado estado) {
 		this.estado = estado;
 	}
+
+	public int getPasoActual() {
+		return pasoActual;
+	}
+
+	public void setPasoActual(int pasoActual) {
+		this.pasoActual = pasoActual;
+	}
 	 
 	 
 

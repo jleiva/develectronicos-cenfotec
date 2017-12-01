@@ -26,18 +26,19 @@ public class FinalizarConsultaInventarioState implements StateConsultaInventario
 
 	@Override
 	public void finalizarTramite() {
+		System.out.println("El tramite esta por finalizar....");
 		GestorConsultaInventario gestor = new GestorConsultaInventario();
 		Documento documento = tramiteInventario.getDoc();
-		if(documento.getStockStatus() == "si") {
+		if(documento.getEstado() == EnumEstado.EnProceso) {
+			
 			tramiteInventario.getDoc().setEstado(EnumEstado.Finalizado);
 			gestor.updateOrden(tramiteInventario.getDoc());
-		}
+		}		
 	}
 	
 	@Override
 	public void save() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
