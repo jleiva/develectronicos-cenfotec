@@ -1,17 +1,19 @@
 package com.cenfotec.develectronicos.entities.extras;
 
-import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Orden;
 
 public class OrdenEntrega extends DecoradorDocumento{
 
-	private Documento doc;
+	private Orden doc;
 
-	public OrdenEntrega(Documento doc) {
+	public OrdenEntrega(Orden doc) {
 		this.doc = doc;
 	}
 
-	public Documento getDoc() {
-		return doc;
+	@Override
+	public String toString() {
+		String mensaje= doc.toString();
+		return mensaje;
 	}
 
 }
