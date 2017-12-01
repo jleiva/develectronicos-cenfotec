@@ -4,22 +4,22 @@ import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.states.ConsultarInventarioState;
-import com.cenfotec.develectronicos.entities.procedure.states.FinalizarTramiteConsultaInventarioState;
-import com.cenfotec.develectronicos.entities.procedure.states.InicioTramiteConsultaInventarioState;
+import com.cenfotec.develectronicos.entities.procedure.states.FinalizarConsultaInventarioState;
+import com.cenfotec.develectronicos.entities.procedure.states.InicioConsultaInventarioState;
 
 public class TramiteConsultaInventario extends Tramite {
 	
 	private ConsultarInventarioState consultaInventarioState;
-	private FinalizarTramiteConsultaInventarioState finalizarTramiteConsultaInventario;
-	private InicioTramiteConsultaInventarioState inicioTramiteConsultaInventario; 
+	private FinalizarConsultaInventarioState finalizarTramiteConsultaInventario;
+	private InicioConsultaInventarioState inicioTramiteConsultaInventario; 
 	
 	private StateConsultaInventario state;
 	
 	public TramiteConsultaInventario() {
 		super();
 		consultaInventarioState = new ConsultarInventarioState(this);
-		finalizarTramiteConsultaInventario = new FinalizarTramiteConsultaInventarioState(this);
-		inicioTramiteConsultaInventario = new InicioTramiteConsultaInventarioState(this);
+		finalizarTramiteConsultaInventario = new FinalizarConsultaInventarioState(this);
+		inicioTramiteConsultaInventario = new InicioConsultaInventarioState(this);
 		
 		setPasoActual();
 	}
@@ -27,8 +27,8 @@ public class TramiteConsultaInventario extends Tramite {
 	public TramiteConsultaInventario(Documento doc) {
 		super(doc);
 		consultaInventarioState = new ConsultarInventarioState(this);
-		finalizarTramiteConsultaInventario = new FinalizarTramiteConsultaInventarioState(this);
-		inicioTramiteConsultaInventario = new InicioTramiteConsultaInventarioState(this);
+		finalizarTramiteConsultaInventario = new FinalizarConsultaInventarioState(this);
+		inicioTramiteConsultaInventario = new InicioConsultaInventarioState(this);
 		
 		setPasoActual();
 	}
@@ -47,44 +47,48 @@ public class TramiteConsultaInventario extends Tramite {
 			break;
 		}
 	}
+
+	@Override
+	public void getEstadoActual() {
+		System.out.println(doc.toString());
+		state.getEstadoActual();
+	}
 	
-	public void iniciarTramite() {
-		state.iniciarTramite();
-	}
-
-	public void consultarInventario() {
-		state.consultarInventario();
-	}
-
-	public void finalizarTramite() {
-		state.finalizarTramite();
-	}
-
-	public void estadoActual() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
-	public void encryptMessage() {
-		// TODO Auto-generated method stub
+	public void ejecutarPasoActual() {
+		state.ejecutarPasoActual();
 	}
 
-	@Override
-	public void decryptMessage() {
-		// TODO Auto-generated method stub
+	public StateConsultaInventario getState() {
+		return state;
 	}
 
-	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-
+	void setState(StateConsultaInventario state) {
+		this.state = state;
 	}
 
-	@Override
-	public void iniciar() {
-		// TODO Auto-generated method stub
-		
+	public ConsultarInventarioState getConsultaInventarioState() {
+		return consultaInventarioState;
+	}
+
+	void setConsultaInventarioState(ConsultarInventarioState consultaInventarioState) {
+		this.consultaInventarioState = consultaInventarioState;
+	}
+
+	public FinalizarConsultaInventarioState getFinalizarTramiteConsultaInventario() {
+		return finalizarTramiteConsultaInventario;
+	}
+
+	void setFinalizarTramiteConsultaInventario(FinalizarConsultaInventarioState finalizarTramiteConsultaInventario) {
+		this.finalizarTramiteConsultaInventario = finalizarTramiteConsultaInventario;
+	}
+
+	public InicioConsultaInventarioState getInicioTramiteConsultaInventario() {
+		return inicioTramiteConsultaInventario;
+	}
+
+	void setInicioTramiteConsultaInventario(InicioConsultaInventarioState inicioTramiteConsultaInventario) {
+		this.inicioTramiteConsultaInventario = inicioTramiteConsultaInventario;
 	}
 
 }

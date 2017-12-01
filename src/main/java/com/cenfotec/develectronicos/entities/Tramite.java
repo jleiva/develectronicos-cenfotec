@@ -1,7 +1,6 @@
 package com.cenfotec.develectronicos.entities;
 
 public abstract class Tramite {
-	private Departamento dept;
 	protected Documento doc = null;
 	
 	public Tramite() {
@@ -18,13 +17,11 @@ public abstract class Tramite {
 	}
 	
 	protected abstract void setPasoActual();
-
-	public abstract void encryptMessage();
 	
-	public abstract void decryptMessage();
+	public void getEstadoActual() {
+		System.out.println(doc.toString());
+	}
 	
-	public abstract void save();
-	
-	public abstract void iniciar();
+	public abstract void ejecutarPasoActual();
 	
 }

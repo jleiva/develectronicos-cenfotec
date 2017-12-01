@@ -2,6 +2,8 @@ package com.cenfotec.develectronicos.entities;
 
 import java.time.LocalDateTime;
 
+import com.cenfotec.develectronicos.Enums.EnumEstado;
+
 public class Documento {
 	 String idDoc = "";
 	 String tipoTramite = "";
@@ -10,6 +12,7 @@ public class Documento {
 	 String stockStatus = "";
 	 public int pasoActual;
 	 LocalDateTime fechaCreacion = null;
+	 EnumEstado estado = EnumEstado.EnProceso;
  
 	 public String getIdDoc() {
 	  return idDoc;
@@ -58,5 +61,15 @@ public class Documento {
 	 public void setTipoTramite(String tipoTramite) {
 	  this.tipoTramite = tipoTramite;
 	 }
+
+	public EnumEstado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EnumEstado estado) {
+		this.estado = estado;
+	}
+	 
+	 
 
 }

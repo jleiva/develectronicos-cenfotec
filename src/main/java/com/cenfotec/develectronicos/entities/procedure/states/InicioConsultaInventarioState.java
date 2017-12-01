@@ -4,37 +4,33 @@ import com.cenfotec.Controllers.GestorConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 
-public class ConsultarInventarioState implements StateConsultaInventario {
+public class InicioConsultaInventarioState implements StateConsultaInventario {
+	
 	private TramiteConsultaInventario tramiteInventario;
 
-	public ConsultarInventarioState(TramiteConsultaInventario aThis) {
+	public InicioConsultaInventarioState(TramiteConsultaInventario aThis) {
 		this.tramiteInventario = aThis;
 	}
 	
 	@Override
 	public void iniciarTramite() {
-		System.out.println("La orden de consulta de inventario ya esta en proceso....");
-	}
-
-	@Override
-	public void consultarInventario() {
 		GestorConsultaInventario gestor = new GestorConsultaInventario();
-		boolean estaProducto = gestor.consultarInventario(tramiteInventario.getDoc().getProductId());
-		
-		if(estaProducto == true) {
-			this.tramiteInventario.getFinalizarTramiteConsultaInventario();
-		}else {
-			
+		int idOrden = gestor.createOrden(tramiteInventario.getDoc());
+		if(gestor.getOrden(idOrden) != null) {
+			this.tramiteInventario.getConsultaInventarioState();
 		}
 	}
 
 	@Override
-	public void finalizarTramite() {
-		// TODO Auto-generated method stub
-		System.out.println("La orden de consulta de inventario ya esta en proceso....");
+	public void consultarInventario() {
+		System.out.println("El tramite esta en proceso de iniciar...");
 	}
 
-
+	@Override
+	public void finalizarTramite() {
+		System.out.println("Aun falta pasos para que el tramite termine");
+	}
+	
 	@Override
 	public void save() {
 		// TODO Auto-generated method stub
@@ -43,12 +39,12 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 
 	@Override
 	public void getEstadoActual() {
-		System.out.println("Paso: Consulta de inventario");
+		System.out.println("Paso: Iniciando tramite...");
 	}
 
 	@Override
 	public void ejecutarPasoActual() {
-		consultarInventario();
+		iniciarTramite();
+		
 	}
-
 }

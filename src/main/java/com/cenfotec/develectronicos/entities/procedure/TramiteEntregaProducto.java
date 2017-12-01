@@ -29,29 +29,18 @@ public class TramiteEntregaProducto extends Tramite {
 //			break;
 //		}
 	}
-	
-	@Override
-	public void encryptMessage() {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
-	public void decryptMessage() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void save() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void iniciar() {
+	public void ejecutarPasoActual() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void getEstadoActual() {
+		System.out.println(doc.toString());
+//		state.getEstadoActual();
+	}
+
 
 }
