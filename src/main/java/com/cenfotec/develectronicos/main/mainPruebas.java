@@ -1,8 +1,5 @@
 package com.cenfotec.develectronicos.main;
 
-import java.util.Date;
-
-import com.cenfotec.develectronicos.Enums.EnumEstado;
 import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
@@ -24,7 +21,6 @@ public class mainPruebas {
 		
 		tramite.getEstadoActual();
 		tramite.ejecutarPasoActual();
-		
 	}
 
 }

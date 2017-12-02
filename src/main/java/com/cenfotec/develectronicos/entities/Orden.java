@@ -2,7 +2,7 @@ package com.cenfotec.develectronicos.entities;
 
 import java.time.LocalDateTime;
 
-import com.cenfotec.develectronicos.Enums.EnumEstado;
+import com.cenfotec.develectronicos.utils.enums.EnumEstadoTramite;
 
 public class Orden extends Documento {
 
@@ -12,7 +12,7 @@ public class Orden extends Documento {
 	 private String productoId;
 	 private LocalDateTime fechaCreacion; 
 	 private int pasoActual;
-	 private EnumEstado estado;
+	 private EnumEstadoTramite estado;
  
 	 public Orden(String idDoc, String tipoTramite, String responsable, String productId, 
 			 String stockStatus) {
@@ -42,7 +42,7 @@ public class Orden extends Documento {
 		this.responsable = "NA";
 		this.productoId = "NA";
 		this.fechaCreacion = LocalDateTime.now();
-		this.estado = EnumEstado.EnProceso;
+		this.estado = EnumEstadoTramite.EnProceso;
 		this.pasoActual = 1;
 	}
 
@@ -74,11 +74,11 @@ public class Orden extends Documento {
 		return fechaCreacion;
 	}
 	
-	public EnumEstado getEstado() {
+	public EnumEstadoTramite getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EnumEstado estado) {
+	public void setEstado(EnumEstadoTramite estado) {
 		this.estado = estado;
 	}
 

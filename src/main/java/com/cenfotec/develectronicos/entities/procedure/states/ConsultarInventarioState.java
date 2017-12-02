@@ -1,10 +1,10 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
 import com.cenfotec.Controllers.GestorConsultaInventario;
-import com.cenfotec.develectronicos.Enums.EnumEstado;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
+import com.cenfotec.develectronicos.utils.enums.EnumEstadoTramite;
 
 public class ConsultarInventarioState implements StateConsultaInventario {
 	private TramiteConsultaInventario tramiteInventario;
@@ -32,7 +32,7 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 			inventario.setStockStatus(true);
 			this.tramiteInventario.getFinalizarTramiteConsultaInventario();
 		}else {
-			(inventario.getDoc()).setEstado(EnumEstado.Finalizado);
+			(inventario.getDoc()).setEstado(EnumEstadoTramite.Finalizado);
 			inventario.setStockStatus(false);
 		}
 		
