@@ -6,8 +6,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Base64.Decoder;
+import java.util.List;
 
 public class JsonDocumentoDAO implements DocumentoDAO {
 	private final String FILE_EXTENSION = ".json";
@@ -26,6 +28,7 @@ public class JsonDocumentoDAO implements DocumentoDAO {
 		byte[] bytes = new byte[length];
 		reader.read(bytes, 0, length);
 		reader.close();
+
 		Decoder oneDecoder = Base64.getDecoder();
 		return oneDecoder.decode(bytes);
 	}
@@ -66,5 +69,26 @@ public class JsonDocumentoDAO implements DocumentoDAO {
 		return file.delete();
 	}
 
+	@Override
+	public List<String> findAll(String tipoDocumento) {
+		List<String> results = new ArrayList<String>();
+		File[] files = new File(PATH + tipoDocumento).listFiles();
+		String fileName;
+		int lastPeriodPos;
+		
+		for (File file : files) {
+			if (file.isFile() && file.getName().endsWith((".json"))) {
+                fileName = file.getName();
+                lastPeriodPos = fileName.lastIndexOf('.');
+                		
+                if (lastPeriodPos > 0) {
+                		fileName = fileName.substring(0, lastPeriodPos);
+                		results.add(fileName);
+                	}
+            }
+		}
+		
+		return results;
+	}
 
 }

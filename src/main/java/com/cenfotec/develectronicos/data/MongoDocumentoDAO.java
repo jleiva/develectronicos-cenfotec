@@ -1,5 +1,7 @@
 package com.cenfotec.develectronicos.data;
 
+import java.util.List;
+
 public class MongoDocumentoDAO implements DocumentoDAO {
 
 	@Override
@@ -26,5 +28,10 @@ public class MongoDocumentoDAO implements DocumentoDAO {
 		return false;
 	}
 
-
+	@Override
+	public List<String> findAll(String Tipodocumento) {
+		return null;
+		// TODO Auto-generated method stub
+		
+	}
 }
