@@ -1,6 +1,6 @@
 package com.cenfotec.develectronicos.utils.enums;
 
-public enum EnumEstadoTramite {
+public enum EstadoTramite {
 	EnProceso,
 	Pendiente,
 	Finalizado
