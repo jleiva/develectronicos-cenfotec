@@ -1,6 +1,6 @@
 package com.cenfotec.develectronicos.entities.procedure;
 
-import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 
 public class TramiteVentaProducto extends Tramite {
@@ -10,7 +10,7 @@ public class TramiteVentaProducto extends Tramite {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TramiteVentaProducto(Documento doc) {
+	public TramiteVentaProducto(Orden doc) {
 		super(doc);
 		// TODO Auto-generated constructor stub
 	}
@@ -38,7 +38,7 @@ public class TramiteVentaProducto extends Tramite {
 	
 	@Override
 	public void getEstadoActual() {
-		System.out.println(doc.toString());
+		System.out.println(documento.toString());
 //		state.getEstadoActual();
 	}
 
