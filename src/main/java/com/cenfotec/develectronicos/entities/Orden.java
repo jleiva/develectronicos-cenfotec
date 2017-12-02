@@ -3,7 +3,7 @@ package com.cenfotec.develectronicos.entities;
 import java.time.LocalDateTime;
 
 public class Orden extends Documento {
-
+	 static public int cont=0;
 	 private String idDoc;
 	 private String tipoTramite;
 	 private String responsable;
@@ -11,9 +11,8 @@ public class Orden extends Documento {
 	 private LocalDateTime fechaCreacion; 
 	 private int pasoActual;
  
-	 public Orden(String idDoc, String tipoTramite, String responsable, String productId, 
-			 String stockStatus) {
-		this.idDoc= idDoc;
+	 public Orden(String idDoc, String tipoTramite, String responsable, String productId) {
+		this.idDoc= idDoc+ getNewCont();;
 		this.tipoTramite = tipoTramite;
 		this.responsable = responsable;
 		this.productoId = productId;
@@ -21,9 +20,8 @@ public class Orden extends Documento {
 		this.pasoActual =1;
 	}
 	 
-	public Orden(String idDoc, String tipoTramite, String responsable, String productId, 
-			 String stockStatus,LocalDateTime fecha, int paso ) {
-		this.idDoc= idDoc;
+	public Orden(String idDoc, String tipoTramite, String responsable, String productId, int paso ) {
+		this.idDoc= idDoc + getNewCont();
 		this.tipoTramite = tipoTramite;
 		this.responsable = responsable;
 		this.productoId = productId;
@@ -32,14 +30,17 @@ public class Orden extends Documento {
 	}
 
 	public Orden() {
-		ContadorDoc cont = new ContadorDoc();
-		this.idDoc = "DOC-"+ cont.getCont();
-		cont.aumentarCont(); //no creo esto del contador sea acá pero lo pongo para hacer pruebas
+		this.idDoc = "DOC-"+ getNewCont() ;
 		this.tipoTramite = "Documento";
 		this.responsable = "NA";
 		this.productoId = "NA";
 		this.fechaCreacion = LocalDateTime.now();
+		cont=cont+1;
 		
+	}
+	
+	public int getNewCont() {		
+		return cont+1;
 	}
 
 	public int getPasoActual() {
@@ -73,7 +74,8 @@ public class Orden extends Documento {
 	public String toString() {
 		String mensaje;
 		
-		mensaje="Id del documento:" + this.getIdDoc() + "\n"+
+		mensaje="Fecha:" + this.getFechaCreacion() + "\n"+
+				"Id del documento:" + this.getIdDoc() + "\n"+
 		        "Tipo del tramite:" + this.getTipoTramite() + "\n"+
 		        "Responsable:" + this.getResponsable()+ "\n"+
 		        "Id del producto:" + this.getProductoId();

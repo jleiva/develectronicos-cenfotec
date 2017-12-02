@@ -7,12 +7,15 @@ public class OrdenInventario extends DecoradorDocumento {
 	private Orden doc;
 	private boolean stockStatus;
 	
+	public OrdenInventario() {
+		this.doc = new Orden("OI-","Inventario","Responsable", "Idproducto");
+	}
+	
 	public OrdenInventario(Orden doc, boolean stockStatus) {
 		this.doc = doc;
 		this.stockStatus = stockStatus;
 	}	
 	
-	@Override
 	public String toString() {
 		String mensaje;
 		String estado;
