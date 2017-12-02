@@ -2,6 +2,8 @@ package com.cenfotec.develectronicos.entities;
 
 import java.time.LocalDateTime;
 
+import com.cenfotec.develectronicos.utils.enums.EstadoTramite;
+
 public class Orden extends Documento {
 	 static public int cont=0;
 	 private String idDoc;
@@ -10,6 +12,7 @@ public class Orden extends Documento {
 	 private String productoId;
 	 private LocalDateTime fechaCreacion; 
 	 private int pasoActual;
+	 private EstadoTramite estado;
  
 	 public Orden(String idDoc, String tipoTramite, String responsable, String productId) {
 		this.idDoc= idDoc+ getNewCont();;
@@ -27,16 +30,6 @@ public class Orden extends Documento {
 		this.productoId = productId;
 		this.fechaCreacion = LocalDateTime.now();
 		this.pasoActual = paso;
-	}
-
-	public Orden() {
-		this.idDoc = "DOC-"+ getNewCont() ;
-		this.tipoTramite = "Documento";
-		this.responsable = "NA";
-		this.productoId = "NA";
-		this.fechaCreacion = LocalDateTime.now();
-		cont=cont+1;
-		
 	}
 	
 	public int getNewCont() {		
@@ -71,6 +64,14 @@ public class Orden extends Documento {
 		return fechaCreacion;
 	}
 	
+	public EstadoTramite getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoTramite estado) {
+		this.estado = estado;
+	}
+
 	public String toString() {
 		String mensaje;
 		

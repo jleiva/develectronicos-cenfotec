@@ -1,7 +1,9 @@
 package com.cenfotec.develectronicos.entities.procedure;
 
 import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.states.ConsultarInventarioState;
 import com.cenfotec.develectronicos.entities.procedure.states.FinalizarConsultaInventarioState;
@@ -35,7 +37,8 @@ public class TramiteConsultaInventario extends Tramite {
 	
 	@Override
 	protected void setPasoActual() {
-		switch(doc.pasoActual) {
+		int pasoActual = ((OrdenInventario) this.documento).getDoc().getPasoActual();
+		switch(pasoActual) {
 		case 1:
 			state = inicioTramiteConsultaInventario;
 			break;
@@ -50,7 +53,7 @@ public class TramiteConsultaInventario extends Tramite {
 
 	@Override
 	public void getEstadoActual() {
-		System.out.println(doc.toString());
+		System.out.println(documento.toString());
 		state.getEstadoActual();
 	}
 	

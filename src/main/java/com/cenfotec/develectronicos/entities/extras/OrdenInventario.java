@@ -16,6 +16,14 @@ public class OrdenInventario extends DecoradorDocumento {
 		this.stockStatus = stockStatus;
 	}	
 	
+<<<<<<< HEAD
+=======
+	public boolean isStockStatus() {
+		return stockStatus;
+	}
+
+	@Override
+>>>>>>> 19a26b29cad9d2bb480e9847ee0640bd1b92f69b
 	public String toString() {
 		String mensaje;
 		String estado;
@@ -27,5 +35,15 @@ public class OrdenInventario extends DecoradorDocumento {
 		mensaje= doc.toString() + "\n"+
 				"Estado inventario" + estado;		
 		return mensaje;
+	}
+
+	public void setStockStatus(boolean stockStatus) {
+		this.stockStatus = stockStatus;
+	}
+	
+	public Orden getDoc() {
+		return doc;
 	} 
+	
+	
 }

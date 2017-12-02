@@ -1,10 +1,11 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
 import com.cenfotec.Controllers.GestorConsultaInventario;
-import com.cenfotec.develectronicos.Enums.EnumEstado;
 import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
+import com.cenfotec.develectronicos.utils.enums.EstadoTramite;
 
 public class FinalizarConsultaInventarioState implements StateConsultaInventario {
 
@@ -28,10 +29,10 @@ public class FinalizarConsultaInventarioState implements StateConsultaInventario
 	public void finalizarTramite() {
 		System.out.println("El tramite esta por finalizar....");
 		GestorConsultaInventario gestor = new GestorConsultaInventario();
-		Documento documento = tramiteInventario.getDoc();
-		if(documento.getEstado() == EnumEstado.EnProceso) {
-			
-			tramiteInventario.getDoc().setEstado(EnumEstado.Finalizado);
+		OrdenInventario inventario = (OrdenInventario) (this.tramiteInventario.getDoc());
+		if(inventario.getDoc().getEstado() == EstadoTramite.EnProceso) {
+			inventario.getDoc().setEstado(EstadoTramite.Finalizado);
+			this.tramiteInventario.setDoc(inventario);
 			gestor.updateOrden(tramiteInventario.getDoc());
 		}		
 	}
