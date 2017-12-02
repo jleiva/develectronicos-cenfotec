@@ -21,9 +21,6 @@ public class Contabilidad extends Departamento {
 		return super.getNombreDept();
 	}
 	
-	//Listar ordenes de facturacion?
-	
-	
 	public boolean procesarPago(int precio, String responsable) {
 		
 		//Crear ordenes de entrega?

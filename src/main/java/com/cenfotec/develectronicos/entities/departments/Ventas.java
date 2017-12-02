@@ -21,8 +21,6 @@ public class Ventas extends Departamento {
 		return super.getNombreDept();
 	}
 
-	//Crear orden de compra??
-		
 	public boolean aprobarCompra(boolean respuestaInventario) {
 		
 		//Genera orden de facturacion (if approved)

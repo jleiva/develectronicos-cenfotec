@@ -22,11 +22,9 @@ public class Bodega extends Departamento {
 		return super.getNombreDept();
 	}	
 	
-	//este mae lista las ordenes de inventario?? (aplica lo mismo para los otros depts)
-	
-	
-	public boolean consultaInventario(String productoId) {
+	public boolean consultarInventario(String productoId) {
 		
+		//El product ID "0" retorna que no existe.
 		if (productoId == "0") {
 			return false;
 		}
@@ -37,7 +35,9 @@ public class Bodega extends Departamento {
 	
 	public boolean entregarProducto(String productoID) {
 		
-		return consultaInventario(productoID);
+		//El tramite de entregar producto hace una validacion de inventario
+		//esto para evitar entregar un producto que no exite... (por aquello)
+		return consultarInventario(productoID);
 		
 	}
 
