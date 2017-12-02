@@ -4,21 +4,15 @@ import com.cenfotec.develectronicos.entities.Departamento;
 
 public class Contabilidad extends Departamento {
 
-	public Contabilidad() {
-		super();
+	public Contabilidad(int idDept, String nombreDept) {
+		super(idDept, nombreDept);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getIdDept() {
+	public int getIdDept() {
 		// TODO Auto-generated method stub
 		return super.getIdDept();
-	}
-
-	@Override
-	public void setIdDept(String idDept) {
-		// TODO Auto-generated method stub
-		super.setIdDept(idDept);
 	}
 
 	@Override
@@ -26,13 +20,16 @@ public class Contabilidad extends Departamento {
 		// TODO Auto-generated method stub
 		return super.getNombreDept();
 	}
-
-	@Override
-	public void setNombreDept(String nombreDept) {
-		// TODO Auto-generated method stub
-		super.setNombreDept(nombreDept);
-	}
 	
+	//Listar ordenes de facturacion?
+	
+	
+	public boolean procesarPago(int precio, String responsable) {
+		
+		//Crear ordenes de entrega?
+		return true;	
+		
+	}
 	
 
 }
