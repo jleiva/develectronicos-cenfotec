@@ -28,6 +28,7 @@ public class JsonDocumentoDAO implements DocumentoDAO {
 		byte[] bytes = new byte[length];
 		reader.read(bytes, 0, length);
 		reader.close();
+
 		Decoder oneDecoder = Base64.getDecoder();
 		return oneDecoder.decode(bytes);
 	}
