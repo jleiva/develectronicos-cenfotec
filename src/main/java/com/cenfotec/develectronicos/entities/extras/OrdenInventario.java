@@ -1,22 +1,28 @@
 package com.cenfotec.develectronicos.entities.extras;
 
-import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Orden;
 
 public class OrdenInventario extends DecoradorDocumento {
 
-	private Documento doc;
-	private String stockStatus;
+	private Orden doc;
+	private boolean stockStatus;
 	
-	public String getStockStatus() {
-		return stockStatus;
-	}
-	public void setStockStatus(String stockStatus) {
-		this.stockStatus = stockStatus;
-	}
-	public Documento getDoc() {
-		return doc;
-	}
-	public void setDoc(Documento doc) {
+	public OrdenInventario(Orden doc, boolean stockStatus) {
 		this.doc = doc;
+		this.stockStatus = stockStatus;
+	}	
+	
+	@Override
+	public String toString() {
+		String mensaje;
+		String estado;
+		if(this.stockStatus) {
+			estado="Disponible";
+		}else {
+			estado="Agotado";
+		}
+		mensaje= doc.toString() + "\n"+
+				"Estado inventario" + estado;		
+		return mensaje;
 	} 
 }

@@ -4,4 +4,5 @@ import com.cenfotec.develectronicos.entities.Documento;
 
 public abstract class DecoradorDocumento extends Documento {
 
+
 }
