@@ -2,6 +2,8 @@ package com.cenfotec.develectronicos.entities;
 
 import java.time.LocalDateTime;
 
+import com.cenfotec.develectronicos.Enums.EnumEstado;
+
 public class Orden extends Documento {
 
 	 private String idDoc;
@@ -10,6 +12,7 @@ public class Orden extends Documento {
 	 private String productoId;
 	 private LocalDateTime fechaCreacion; 
 	 private int pasoActual;
+	 private EnumEstado estado;
  
 	 public Orden(String idDoc, String tipoTramite, String responsable, String productId, 
 			 String stockStatus) {
@@ -34,12 +37,13 @@ public class Orden extends Documento {
 	public Orden() {
 		ContadorDoc cont = new ContadorDoc();
 		this.idDoc = "DOC-"+ cont.getCont();
-		cont.aumentarCont(); //no creo esto del contador sea acá pero lo pongo para hacer pruebas
+		cont.aumentarCont(); //no creo esto del contador sea acï¿½ pero lo pongo para hacer pruebas
 		this.tipoTramite = "Documento";
 		this.responsable = "NA";
 		this.productoId = "NA";
 		this.fechaCreacion = LocalDateTime.now();
-		
+		this.estado = EnumEstado.EnProceso;
+		this.pasoActual = 1;
 	}
 
 	public int getPasoActual() {
@@ -70,6 +74,14 @@ public class Orden extends Documento {
 		return fechaCreacion;
 	}
 	
+	public EnumEstado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EnumEstado estado) {
+		this.estado = estado;
+	}
+
 	public String toString() {
 		String mensaje;
 		

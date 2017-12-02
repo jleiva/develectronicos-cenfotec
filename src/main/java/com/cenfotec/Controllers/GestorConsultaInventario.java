@@ -6,7 +6,6 @@ public class GestorConsultaInventario {
 
 	public void updateOrden(Documento doc) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public boolean consultarInventario(String productId) {

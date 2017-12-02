@@ -2,6 +2,7 @@ package com.cenfotec.develectronicos.entities.procedure.states;
 
 import com.cenfotec.Controllers.GestorConsultaInventario;
 import com.cenfotec.develectronicos.Enums.EnumEstado;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 
@@ -21,16 +22,21 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 	public void consultarInventario() {
 		System.out.println("Consultando inventario.....");
 		GestorConsultaInventario gestor = new GestorConsultaInventario();
-		boolean estaProducto = gestor.consultarInventario(tramiteInventario.getDoc().getProductId());
+		
+		OrdenInventario inventario = (OrdenInventario) (this.tramiteInventario.getDoc());
+		
+		boolean estaProducto = gestor.consultarInventario(inventario.getDoc().getProductoId());
 		
 		if(estaProducto == true) {
-			this.tramiteInventario.getDoc().setStockStatus("Si");
+			
+			inventario.setStockStatus(true);
 			this.tramiteInventario.getFinalizarTramiteConsultaInventario();
 		}else {
-			this.tramiteInventario.getDoc().setEstado(EnumEstado.Finalizado);
-			this.tramiteInventario.getDoc().setStockStatus("No");
+			(inventario.getDoc()).setEstado(EnumEstado.Finalizado);
+			inventario.setStockStatus(false);
 		}
 		
+		this.tramiteInventario.setDoc(inventario);
 		this.tramiteInventario.setState(this.tramiteInventario.getFinalizarTramiteConsultaInventario());
 		gestor.updateOrden(this.tramiteInventario.getDoc());
 	}
