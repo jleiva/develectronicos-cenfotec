@@ -4,35 +4,41 @@ import com.cenfotec.develectronicos.entities.Departamento;
 
 public class Bodega extends Departamento {
 
-	public Bodega() {
-		super();
+
+	public Bodega(int idDept, String nombreDept) {
+		super(idDept, nombreDept);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public String getIdDept() {
+	public int getIdDept() {
 		// TODO Auto-generated method stub
 		return super.getIdDept();
-	}
-
-	@Override
-	public void setIdDept(String idDept) {
-		// TODO Auto-generated method stub
-		super.setIdDept(idDept);
 	}
 
 	@Override
 	public String getNombreDept() {
 		// TODO Auto-generated method stub
 		return super.getNombreDept();
-	}
-
-	@Override
-	public void setNombreDept(String nombreDept) {
-		// TODO Auto-generated method stub
-		super.setNombreDept(nombreDept);
+	}	
+	
+	public boolean consultarInventario(String productoId) {
+		
+		//El product ID "0" retorna que no existe.
+		if (productoId == "0") {
+			return false;
+		}
+		
+		return true;
+		
 	}
 	
-	
+	public boolean entregarProducto(String productoID) {
+		
+		//El tramite de entregar producto hace una validacion de inventario
+		//esto para evitar entregar un producto que no exite... (por aquello)
+		return consultarInventario(productoID);
+		
+	}
 
 }
