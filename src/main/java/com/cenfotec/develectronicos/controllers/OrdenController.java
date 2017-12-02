@@ -3,6 +3,7 @@ package com.cenfotec.develectronicos.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
 
 public class OrdenController {
@@ -40,7 +41,7 @@ public class OrdenController {
 		
 	}
 	
-	public void crearOrden() {
+	public void crearOrden(Documento doc) {
 		
 	}
 	
@@ -56,8 +57,8 @@ public class OrdenController {
 		
 	}
 	
-	public void procesarConsultarInventario() {
-		
+	public boolean procesarConsultarInventario(String productoId) {
+		return true;
 	}
 	
 	public void procesarAprobarCompra() {
@@ -71,5 +72,11 @@ public class OrdenController {
 	public void procesarEntregarProducto() {
 		
 	}
+
+	public void actualizarOrden(Documento doc) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
