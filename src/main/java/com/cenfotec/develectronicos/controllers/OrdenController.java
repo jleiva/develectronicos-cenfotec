@@ -3,7 +3,12 @@ package com.cenfotec.develectronicos.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
+import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
+import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
+import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 
 public class OrdenController {
 	
@@ -39,9 +44,35 @@ public class OrdenController {
 		return this.ordenesEntrega;
 		
 	}
-	
-	public void crearOrden() {
 		
+	public Documento CrearOrden(int tipo, String idDep, String tipoTramite, String responsable, String idProd) {
+	
+		Orden ord = new Orden(idDep,tipoTramite,responsable,idProd);		
+		Documento newOrd = crearTipoOrden(tipo,ord);
+		guardarOrden();
+		return newOrd;
+		
+	}
+	
+	private void guardarOrden() {
+		// codigo necesario para guardar la orden
+		
+	}
+
+	public Documento crearTipoOrden(int tipo, Orden ord) {
+				
+		switch (tipo){
+			case 1:
+				return new OrdenCompra(ord);
+			case 2:
+				return new OrdenEntrega(ord);
+			case 3:
+				return new OrdenFacturacion(ord);
+			case 4:
+				return new OrdenInventario(ord);
+			default:
+				return ord;
+		}
 	}
 	
 	public Orden seleccionarOrden(List<Orden> Ordenes, String idDoc) {

@@ -1,16 +1,16 @@
 package com.cenfotec.develectronicos.entities;
 
 public class Departamento {
-	private int idDept;
+	private String idDept;
 	private String nombreDept;
 	
 	
-	public Departamento(int idDept, String nombreDept) {
+	public Departamento(String idDept, String nombreDept) {
 		this.idDept = idDept;
 		this.nombreDept = nombreDept;
 	}
 
-	public int getIdDept() {
+	public String getIdDept() {
 		return idDept;
 	}
 	

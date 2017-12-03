@@ -6,18 +6,16 @@ public class OrdenCompra extends DecoradorDocumento{
 
 	private Orden doc;
 
-	public OrdenCompra() {
-		this.doc = new Orden("OC-","Venta","Responsable", "Idproducto");
-	}
-	
 	public OrdenCompra(Orden doc) {
 		this.doc = doc;
+		this.doc.actualizarIdOrden("OC");
 	}
-
+	
 	public Orden getDoc() {
 		return doc;
 	}
 
+	@Override
 	public String toString() {
 		String mensaje= doc.toString();
 		return mensaje;

@@ -1,17 +1,22 @@
 package com.cenfotec.develectronicos.entities.departments;
 
 import com.cenfotec.develectronicos.entities.Departamento;
+import com.cenfotec.develectronicos.utils.enums.TipoDepartamento;
 
 public class Bodega extends Departamento {
 
 
-	public Bodega(int idDept, String nombreDept) {
+	public Bodega(String idDept, String nombreDept) {
 		super(idDept, nombreDept);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Bodega() {
+		super(TipoDepartamento.BOD.toString(), "BODEGA");
+	}
 
 	@Override
-	public int getIdDept() {
+	public String getIdDept() {
 		// TODO Auto-generated method stub
 		return super.getIdDept();
 	}

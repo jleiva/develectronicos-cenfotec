@@ -7,12 +7,14 @@ public class OrdenFacturacion extends DecoradorDocumento{
 	private Orden doc;
 	private String idCliente;
 	
-	public OrdenFacturacion() {
-		this.doc = new Orden("OF-","Facturacion","Responsable", "Idproducto");
+	public OrdenFacturacion(Orden doc) {
+		this.doc = doc;
+		this.doc.actualizarIdOrden("OF");
 	}
 	
 	public OrdenFacturacion(Orden doc, String idCliente) {
 		this.doc = doc;
+		this.doc.actualizarIdOrden("OF");
 		this.idCliente = idCliente;
 	}
 
@@ -20,12 +22,12 @@ public class OrdenFacturacion extends DecoradorDocumento{
 		this.idCliente = idCliente;
 	}
 
+	@Override
 	public String toString() {
 		String mensaje;
 		mensaje= doc.toString() + "\n"+
 				"Id del cliente"+ this.idCliente;		
 		return mensaje;
-	}
-	
+	}	
 	
 }
