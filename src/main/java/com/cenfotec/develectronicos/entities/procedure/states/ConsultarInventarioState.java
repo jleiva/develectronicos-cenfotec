@@ -21,12 +21,10 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 	@Override
 	public void consultarInventario() {
 		System.out.println("Consultando inventario.....");
-		GestorConsultaInventario gestor = new GestorConsultaInventario();
 		
 		OrdenInventario inventario = (OrdenInventario) (this.tramiteInventario.getDoc());
-		
-		boolean estaProducto = gestor.consultarInventario(inventario.getDoc().getProductoId());
-		
+		boolean estaProducto = controller.procesarConsultarInventario(inventario.getDoc().getProductoId());
+		 
 		if(estaProducto == true) {
 			
 			inventario.setStockStatus(true);
@@ -38,7 +36,7 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 		
 		this.tramiteInventario.setDoc(inventario);
 		this.tramiteInventario.setState(this.tramiteInventario.getFinalizarTramiteConsultaInventario());
-		gestor.updateOrden(this.tramiteInventario.getDoc());
+		controller.actualizarOrden(this.tramiteInventario.getDoc());
 	}
 
 	@Override

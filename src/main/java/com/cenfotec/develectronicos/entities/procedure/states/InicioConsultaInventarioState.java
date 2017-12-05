@@ -1,6 +1,7 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
 import com.cenfotec.Controllers.GestorConsultaInventario;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 
@@ -15,11 +16,14 @@ public class InicioConsultaInventarioState implements StateConsultaInventario {
 	@Override
 	public void iniciarTramite() {
 		System.out.println("Iniciando tramite, espere por favor....");
-		GestorConsultaInventario gestor = new GestorConsultaInventario();
-		int idOrden = gestor.createOrden(tramiteInventario.getDoc());
-		if(gestor.getOrden(idOrden) != 0) {
-			this.tramiteInventario.setState(this.tramiteInventario.getConsultaInventarioState());
-		}
+		
+		OrdenInventario inventario = (OrdenInventario) (this.tramiteInventario.getDoc());
+		
+		inventario.getDoc().setPasoActual(2);
+		this.tramiteInventario.setDoc(inventario);
+		
+		controller.crearOrden(tramiteInventario.getDoc());
+		this.tramiteInventario.setState(this.tramiteInventario.getConsultaInventarioState());	
 	}
 
 	@Override
