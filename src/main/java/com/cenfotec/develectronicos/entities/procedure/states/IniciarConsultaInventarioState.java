@@ -5,11 +5,11 @@ import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 
-public class InicioConsultaInventarioState implements StateConsultaInventario {
+public class IniciarConsultaInventarioState implements StateConsultaInventario {
 	
 	private TramiteConsultaInventario tramiteInventario;
 
-	public InicioConsultaInventarioState(TramiteConsultaInventario aThis) {
+	public IniciarConsultaInventarioState(TramiteConsultaInventario aThis) {
 		this.tramiteInventario = aThis;
 	}
 	

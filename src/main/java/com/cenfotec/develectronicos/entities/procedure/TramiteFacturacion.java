@@ -2,9 +2,15 @@ package com.cenfotec.develectronicos.entities.procedure;
 
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
+import com.cenfotec.develectronicos.entities.procedure.interfaces.StateFacturacion;
+import com.cenfotec.develectronicos.entities.procedure.states.GenerarFacturaFisica;
+import com.cenfotec.develectronicos.entities.procedure.states.IniciarFacturacion;
 
 public class TramiteFacturacion extends Tramite {
+	IniciarFacturacion iniciarFacturacion;
+	GenerarFacturaFisica generarFactura;
 	
+	StateFacturacion state;
 	public TramiteFacturacion() {
 		super();
 		// TODO Auto-generated constructor stub

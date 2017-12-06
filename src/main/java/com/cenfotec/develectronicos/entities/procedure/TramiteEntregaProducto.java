@@ -2,8 +2,17 @@ package com.cenfotec.develectronicos.entities.procedure;
 
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
+import com.cenfotec.develectronicos.entities.procedure.interfaces.StateEntregaProducto;
+import com.cenfotec.develectronicos.entities.procedure.states.FinalizarEntregaProducto;
+import com.cenfotec.develectronicos.entities.procedure.states.IniciarEntregaProducto;
+import com.cenfotec.develectronicos.entities.procedure.states.NotificacionEntregaProducto;
 
 public class TramiteEntregaProducto extends Tramite {
+	IniciarEntregaProducto iniciarEntregaProducto;
+	NotificacionEntregaProducto notificacionEntrega;
+	FinalizarEntregaProducto finalizarEntregaProducto;
+	
+	StateEntregaProducto state;
 	
 	public TramiteEntregaProducto() {
 		super();
