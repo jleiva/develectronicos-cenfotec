@@ -36,8 +36,7 @@ public class FinalizarEntregaProducto implements StateEntregaProducto {
 
 	@Override
 	public void ejecutarPasoActual() {
-		// TODO Auto-generated method stub
-
+		finalizarTramite();
 	}
 
 }

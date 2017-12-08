@@ -16,15 +16,6 @@ public class TramiteConsultaInventario extends Tramite {
 	private IniciarConsultaInventarioState inicioTramiteConsultaInventario; 
 	
 	private StateConsultaInventario state;
-	
-	public TramiteConsultaInventario() {
-		super();
-		consultaInventarioState = new ConsultarInventarioState(this);
-		finalizarTramiteConsultaInventario = new FinalizarConsultaInventarioState(this);
-		inicioTramiteConsultaInventario = new IniciarConsultaInventarioState(this);
-		
-		setPasoActual();
-	}
 
 	public TramiteConsultaInventario(Documento doc) {
 		super(doc);

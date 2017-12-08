@@ -6,8 +6,8 @@ public class IniciarEntregaProducto implements StateEntregaProducto {
 
 	@Override
 	public void iniciarTramite() {
-		// TODO Auto-generated method stub
-
+//		this.tramiteInventario.setState(this.tramiteInventario.getConsultaInventarioState());
+		
 	}
 
 	@Override
@@ -36,8 +36,7 @@ public class IniciarEntregaProducto implements StateEntregaProducto {
 
 	@Override
 	public void ejecutarPasoActual() {
-		// TODO Auto-generated method stub
-
+		iniciarTramite();
 	}
 
 }

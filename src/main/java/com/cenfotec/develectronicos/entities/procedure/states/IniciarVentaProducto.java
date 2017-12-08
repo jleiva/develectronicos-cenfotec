@@ -1,13 +1,19 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
+import com.cenfotec.develectronicos.entities.procedure.TramiteVentaProducto;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateVentaProducto;
 
 public class IniciarVentaProducto implements StateVentaProducto {
 
+	private TramiteVentaProducto tramite;
+	
+	public IniciarVentaProducto(TramiteVentaProducto aThis) {
+		this.tramite = aThis;
+	}
+	
 	@Override
 	public void iniciarTramite() {
-		// TODO Auto-generated method stub
-
+		this.tramite.setState(this.tramite.getConsultarInventario());
 	}
 
 	@Override
@@ -42,8 +48,7 @@ public class IniciarVentaProducto implements StateVentaProducto {
 
 	@Override
 	public void ejecutarPasoActual() {
-		// TODO Auto-generated method stub
-
+		iniciarTramite();
 	}
 
 }

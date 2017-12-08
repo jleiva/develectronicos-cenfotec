@@ -36,8 +36,7 @@ public class FinalizarFacturacion implements StateFacturacion {
 
 	@Override
 	public void ejecutarPasoActual() {
-		// TODO Auto-generated method stub
-
+		finalizarTramite();
 	}
 
 }

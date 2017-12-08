@@ -36,8 +36,7 @@ public class GenerarFacturaFisica implements StateFacturacion {
 
 	@Override
 	public void ejecutarPasoActual() {
-		// TODO Auto-generated method stub
-
+		generarFacturaFisica();
 	}
 
 }

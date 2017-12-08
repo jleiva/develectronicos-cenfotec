@@ -16,4 +16,11 @@ public class OrdenEntrega extends DecoradorDocumento{
 		return mensaje;
 	}
 
+	public Orden getDoc() {
+		return doc;
+	}
+
+	public void setDoc(Orden doc) {
+		this.doc = doc;
+	}
 }
