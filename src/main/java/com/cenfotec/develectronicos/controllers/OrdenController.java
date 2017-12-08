@@ -9,6 +9,8 @@ import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
 import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
 import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
+import com.cenfotec.develectronicos.utils.enums.TipoOrden;
+import com.cenfotec.develectronicos.utils.factory.OrdenFactory;
 
 public class OrdenController {
 	
@@ -45,35 +47,31 @@ public class OrdenController {
 		
 	}
 		
-	public Documento CrearOrden(int tipo, String idDep, String tipoTramite, String responsable, String idProd) {
+	public Documento crearOrden(TipoOrden tipo, String idDep, String tipoTramite, String responsable, String idProd) {
 	
-		Orden ord = new Orden(idDep,tipoTramite,responsable,idProd);		
-		Documento newOrd = crearTipoOrden(tipo,ord);
-		guardarOrden();
+		OrdenFactory ordFactory = new OrdenFactory();
+		Orden ord = new Orden(idDep,tipoTramite,responsable,idProd);
+		Documento newOrd = ordFactory.crearOrden(tipo,ord);
+		guardarOrden(newOrd);
 		return newOrd;
 		
 	}
 	
-	private void guardarOrden() {
-		// codigo necesario para guardar la orden
+	public Documento crearOrden(TipoOrden tipo, Documento ord) {
+	
+		OrdenFactory ordFactory = new OrdenFactory();
+		Documento newOrd = ordFactory.crearOrden(tipo,(Orden)ord);
+		guardarOrden(newOrd);
+		return newOrd;
 		
 	}
 
-	public Documento crearTipoOrden(int tipo, Orden ord) {
-				
-		switch (tipo){
-			case 1:
-				return new OrdenCompra(ord);
-			case 2:
-				return new OrdenEntrega(ord);
-			case 3:
-				return new OrdenFacturacion(ord);
-			case 4:
-				return new OrdenInventario(ord);
-			default:
-				return ord;
-		}
+	private void guardarOrden(Documento ord) {
+		// TODO Auto-generated method stub
+		
 	}
+
+	
 	
 	public Orden seleccionarOrden(List<Orden> Ordenes, String idDoc) {
 		
@@ -87,8 +85,8 @@ public class OrdenController {
 		
 	}
 	
-	public void procesarConsultarInventario() {
-		
+	public boolean procesarConsultarInventario(String productoId) {
+		return true;
 	}
 	
 	public void procesarAprobarCompra() {
@@ -102,5 +100,11 @@ public class OrdenController {
 	public void procesarEntregarProducto() {
 		
 	}
+
+	public void actualizarOrden(Documento doc) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
