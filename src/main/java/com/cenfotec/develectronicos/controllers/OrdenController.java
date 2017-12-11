@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
+import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
+import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
+import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
+import com.cenfotec.develectronicos.utils.enums.TipoOrden;
+import com.cenfotec.develectronicos.utils.factory.OrdenFactory;
 
 public class OrdenController {
 	
@@ -40,10 +46,32 @@ public class OrdenController {
 		return this.ordenesEntrega;
 		
 	}
+		
+	public Documento crearOrden(TipoOrden tipo, String idDep, String tipoTramite, String responsable, String idProd) {
 	
-	public void crearOrden(Documento doc) {
+		OrdenFactory ordFactory = new OrdenFactory();
+		Orden ord = new Orden(idDep,tipoTramite,responsable,idProd);
+		Documento newOrd = ordFactory.crearOrden(tipo,ord);
+		guardarOrden(newOrd);
+		return newOrd;
 		
 	}
+	
+	public Documento crearOrden(TipoOrden tipo, Documento ord) {
+	
+		OrdenFactory ordFactory = new OrdenFactory();
+		Documento newOrd = ordFactory.crearOrden(tipo,(Orden)ord);
+		guardarOrden(newOrd);
+		return newOrd;
+		
+	}
+
+	private void guardarOrden(Documento ord) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 	
 	public Orden seleccionarOrden(List<Orden> Ordenes, String idDoc) {
 		

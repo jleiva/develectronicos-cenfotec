@@ -8,8 +8,9 @@ public class OrdenCompra extends DecoradorDocumento{
 
 	public OrdenCompra(Orden doc) {
 		this.doc = doc;
+		this.doc.actualizarIdOrden("OC");
 	}
-
+	
 	public Orden getDoc() {
 		return doc;
 	}

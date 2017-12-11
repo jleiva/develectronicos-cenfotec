@@ -7,8 +7,14 @@ public class OrdenFacturacion extends DecoradorDocumento{
 	private Orden doc;
 	private String idCliente;
 	
+	public OrdenFacturacion(Orden doc) {
+		this.doc = doc;
+		this.doc.actualizarIdOrden("OF");
+	}
+	
 	public OrdenFacturacion(Orden doc, String idCliente) {
 		this.doc = doc;
+		this.doc.actualizarIdOrden("OF");
 		this.idCliente = idCliente;
 	}
 
@@ -22,7 +28,6 @@ public class OrdenFacturacion extends DecoradorDocumento{
 		mensaje= doc.toString() + "\n"+
 				"Id del cliente"+ this.idCliente;		
 		return mensaje;
-	}
-	
+	}	
 	
 }

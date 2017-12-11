@@ -7,15 +7,31 @@ public class OrdenInventario extends DecoradorDocumento {
 	private Orden doc;
 	private boolean stockStatus;
 	
+	public OrdenInventario(Orden doc) {
+		this.doc = doc;
+		this.doc.actualizarIdOrden("OI");
+		this.stockStatus = false;
+		
+	}
+	
 	public OrdenInventario(Orden doc, boolean stockStatus) {
 		this.doc = doc;
+		this.doc.actualizarIdOrden("OI");
 		this.stockStatus = stockStatus;
 	}	
 	
 	public boolean isStockStatus() {
 		return stockStatus;
 	}
-
+	
+	public void setStockStatus(boolean stockStatus) {
+		this.stockStatus = stockStatus;
+	}
+	
+	public Orden getDoc() {
+		return doc;
+	} 
+	
 	@Override
 	public String toString() {
 		String mensaje;
@@ -26,17 +42,8 @@ public class OrdenInventario extends DecoradorDocumento {
 			estado="Agotado";
 		}
 		mensaje= doc.toString() + "\n"+
-				"Estado inventario" + estado;		
+				"Estado inventario " + estado;		
 		return mensaje;
 	}
-
-	public void setStockStatus(boolean stockStatus) {
-		this.stockStatus = stockStatus;
-	}
-	
-	public Orden getDoc() {
-		return doc;
-	} 
-	
 	
 }

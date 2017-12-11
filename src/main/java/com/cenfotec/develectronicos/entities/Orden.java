@@ -5,45 +5,51 @@ import java.time.LocalDateTime;
 import com.cenfotec.develectronicos.utils.enums.EstadoTramite;
 
 public class Orden extends Documento {
-
+	 static public int cont=0;
 	 private String idDoc;
+	 private String idDep;
 	 private String tipoTramite;
 	 private String responsable;
 	 private String productoId;
 	 private LocalDateTime fechaCreacion; 
 	 private int pasoActual;
 	 private EstadoTramite estado;
- 
-	 public Orden(String idDoc, String tipoTramite, String responsable, String productId, 
-			 String stockStatus) {
-		this.idDoc= idDoc;
+
+	public Orden() {
+			this.idDoc= "ORD-" + getNewCont();
+			this.idDep = "NA";
+			this.tipoTramite = "Tramite-OR";
+			this.responsable = "Responsable";
+			this.productoId = "IDProd";
+			this.fechaCreacion = LocalDateTime.now();
+			this.pasoActual = 1;
+			this.estado = EstadoTramite.Pendiente;
+	}		
+	 		
+	public Orden(String idDep, String tipoTramite, String responsable, String idProd) {
+	    this.idDoc= "ORD-" + getNewCont();
+		this.idDep = idDep;
 		this.tipoTramite = tipoTramite;
 		this.responsable = responsable;
-		this.productoId = productId;
+		this.productoId = idProd;
 		this.fechaCreacion = LocalDateTime.now();
-		this.pasoActual =1;
+		this.pasoActual = 1;
 	}
-	 
-	public Orden(String idDoc, String tipoTramite, String responsable, String productId, 
-			 String stockStatus,LocalDateTime fecha, int paso ) {
-		this.idDoc= idDoc;
+		 
+	public Orden(String tipoTramite, String responsable, String productId, String idDep,
+			int paso) {
+		this.idDoc= "ORD-" + getNewCont();
+		this.idDep = idDep;
 		this.tipoTramite = tipoTramite;
 		this.responsable = responsable;
 		this.productoId = productId;
 		this.fechaCreacion = LocalDateTime.now();
 		this.pasoActual = paso;
-	}
-
-	public Orden() {
-		ContadorDoc cont = new ContadorDoc();
-		this.idDoc = "DOC-"+ cont.getCont();
-		cont.aumentarCont(); //no creo esto del contador sea ac� pero lo pongo para hacer pruebas
-		this.tipoTramite = "Documento";
-		this.responsable = "NA";
-		this.productoId = "NA";
-		this.fechaCreacion = LocalDateTime.now();
 		this.estado = EstadoTramite.EnProceso;
-		this.pasoActual = 1;
+	}
+		
+	public int getNewCont() {		
+		return cont+1;
 	}
 
 	public int getPasoActual() {
@@ -82,14 +88,30 @@ public class Orden extends Documento {
 		this.estado = estado;
 	}
 
+	public String getIdDep() {
+		return idDep;
+	}
+
+	public void setIdDep(String idDep) {
+		this.idDep = idDep;
+	}
+	
+	@Override
 	public String toString() {
 		String mensaje;
 		
-		mensaje="Id del documento:" + this.getIdDoc() + "\n"+
-		        "Tipo del tramite:" + this.getTipoTramite() + "\n"+
-		        "Responsable:" + this.getResponsable()+ "\n"+
-		        "Id del producto:" + this.getProductoId();
+		mensaje="Fecha: " + this.getFechaCreacion() + "\n"+
+				"Id del documento: " + this.getIdDoc() + "\n"+
+		        "Tipo del tramite: " + this.getTipoTramite() + "\n"+
+		        "Responsable: " + this.getResponsable()+ "\n"+
+		        "Id Departamento: " + this.getIdDep()+ "\n"+
+		        "Id del producto: " + this.getProductoId();
 		return mensaje;
+		
+	}
+
+	public void actualizarIdOrden(String id) {
+		this.idDoc = this.idDoc.replace("ORD",id);
 		
 	}
 

@@ -8,8 +8,9 @@ public class OrdenEntrega extends DecoradorDocumento{
 
 	public OrdenEntrega(Orden doc) {
 		this.doc = doc;
+		this.doc.actualizarIdOrden("OE");
 	}
-
+	
 	@Override
 	public String toString() {
 		String mensaje= doc.toString();
