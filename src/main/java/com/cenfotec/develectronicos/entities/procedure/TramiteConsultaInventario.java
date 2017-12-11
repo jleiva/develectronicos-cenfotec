@@ -7,30 +7,21 @@ import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.states.ConsultarInventarioState;
 import com.cenfotec.develectronicos.entities.procedure.states.FinalizarConsultaInventarioState;
-import com.cenfotec.develectronicos.entities.procedure.states.InicioConsultaInventarioState;
+import com.cenfotec.develectronicos.entities.procedure.states.IniciarConsultaInventarioState;
 
 public class TramiteConsultaInventario extends Tramite {
 	
 	private ConsultarInventarioState consultaInventarioState;
 	private FinalizarConsultaInventarioState finalizarTramiteConsultaInventario;
-	private InicioConsultaInventarioState inicioTramiteConsultaInventario; 
+	private IniciarConsultaInventarioState inicioTramiteConsultaInventario; 
 	
 	private StateConsultaInventario state;
-	
-	public TramiteConsultaInventario() {
-		super();
-		consultaInventarioState = new ConsultarInventarioState(this);
-		finalizarTramiteConsultaInventario = new FinalizarConsultaInventarioState(this);
-		inicioTramiteConsultaInventario = new InicioConsultaInventarioState(this);
-		
-		setPasoActual();
-	}
 
 	public TramiteConsultaInventario(Documento doc) {
 		super(doc);
 		consultaInventarioState = new ConsultarInventarioState(this);
 		finalizarTramiteConsultaInventario = new FinalizarConsultaInventarioState(this);
-		inicioTramiteConsultaInventario = new InicioConsultaInventarioState(this);
+		inicioTramiteConsultaInventario = new IniciarConsultaInventarioState(this);
 		
 		setPasoActual();
 	}
@@ -86,11 +77,11 @@ public class TramiteConsultaInventario extends Tramite {
 		this.finalizarTramiteConsultaInventario = finalizarTramiteConsultaInventario;
 	}
 
-	public InicioConsultaInventarioState getInicioTramiteConsultaInventario() {
+	public IniciarConsultaInventarioState getInicioTramiteConsultaInventario() {
 		return inicioTramiteConsultaInventario;
 	}
 
-	void setInicioTramiteConsultaInventario(InicioConsultaInventarioState inicioTramiteConsultaInventario) {
+	void setInicioTramiteConsultaInventario(IniciarConsultaInventarioState inicioTramiteConsultaInventario) {
 		this.inicioTramiteConsultaInventario = inicioTramiteConsultaInventario;
 	}
 

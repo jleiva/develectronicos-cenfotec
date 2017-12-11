@@ -21,6 +21,10 @@ public class OrdenFacturacion extends DecoradorDocumento{
 	public OrdenFacturacion(String idCliente) {
 		this.idCliente = idCliente;
 	}
+	
+	public Orden getDoc() {
+		return doc;
+	}
 
 	@Override
 	public String toString() {
