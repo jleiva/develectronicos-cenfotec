@@ -1,6 +1,6 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
-import com.cenfotec.Controllers.GestorConsultaInventario;
+import com.cenfotec.develectronicos.controllers.GestorConsultaInventario;
 import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
