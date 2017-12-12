@@ -5,10 +5,6 @@ import java.util.List;
 
 import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
-import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
-import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
-import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
-import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.utils.enums.TipoOrden;
 import com.cenfotec.develectronicos.utils.factory.OrdenFactory;
 
