@@ -1,4 +1,4 @@
-package com.cenfotec.Controllers;
+package com.cenfotec.develectronicos.controllers;
 
 import com.cenfotec.develectronicos.entities.Documento;
 
