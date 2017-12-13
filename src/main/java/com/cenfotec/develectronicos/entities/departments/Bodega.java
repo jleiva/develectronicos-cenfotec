@@ -14,18 +14,6 @@ public class Bodega extends Departamento {
 	public Bodega() {
 		super(TipoDepartamento.BOD.toString(), "BODEGA");
 	}
-
-	@Override
-	public String getIdDept() {
-		// TODO Auto-generated method stub
-		return super.getIdDept();
-	}
-
-	@Override
-	public String getNombreDept() {
-		// TODO Auto-generated method stub
-		return super.getNombreDept();
-	}	
 	
 	public boolean consultarInventario(String productoId) {
 		
