@@ -45,5 +45,17 @@ public class OrdenInventario extends DecoradorDocumento {
 				"Estado inventario " + estado;		
 		return mensaje;
 	}
+
+	@Override
+	public String getIdDoc() {
+		// TODO Auto-generated method stub
+		return this.doc.getIdDoc();
+	}
+
+	@Override
+	public String getIdDep() {
+		// TODO Auto-generated method stub
+		return this.doc.getIdDep();
+	}
 	
 }

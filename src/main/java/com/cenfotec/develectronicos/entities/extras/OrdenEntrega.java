@@ -24,4 +24,16 @@ public class OrdenEntrega extends DecoradorDocumento{
 	public void setDoc(Orden doc) {
 		this.doc = doc;
 	}
+
+	@Override
+	public String getIdDoc() {
+		// TODO Auto-generated method stub
+		return this.doc.getIdDoc();
+	}
+
+	@Override
+	public String getIdDep() {
+		// TODO Auto-generated method stub
+		return this.doc.getIdDep();
+	}
 }

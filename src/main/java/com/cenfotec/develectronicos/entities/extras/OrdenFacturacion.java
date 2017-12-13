@@ -32,6 +32,18 @@ public class OrdenFacturacion extends DecoradorDocumento{
 		mensaje= doc.toString() + "\n"+
 				"Id del cliente"+ this.idCliente;		
 		return mensaje;
+	}
+
+	@Override
+	public String getIdDoc() {
+		// TODO Auto-generated method stub
+		return this.doc.getIdDoc();
+	}
+
+	@Override
+	public String getIdDep() {
+		// TODO Auto-generated method stub
+		return this.doc.getIdDep();
 	}	
 	
 }
