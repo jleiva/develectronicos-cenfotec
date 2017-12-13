@@ -34,7 +34,7 @@ public class EncryptManager {
 	public void createKey(String name) throws Exception {
 		KeyPairGenerator kpg = KeyPairGenerator.getInstance("RSA");
 		KeyFactory fact = KeyFactory.getInstance("RSA");
-		kpg.initialize(2048);
+		kpg.initialize(3072);
 		KeyPair kp = kpg.genKeyPair();
 		RSAPublicKeySpec pub = fact.getKeySpec(kp.getPublic(), 
 				RSAPublicKeySpec.class);

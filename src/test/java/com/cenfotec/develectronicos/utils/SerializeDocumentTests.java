@@ -25,7 +25,7 @@ public class SerializeDocumentTests {
 	@SuppressWarnings("static-access")
 	@Test
 	public void serializarDeDocumentoAjsonRetornaString() {
-		Orden documento = new Orden("idDoc02", "VentaProducto", "Jose Leiva", "MAM0516", "");
+		Orden documento = new Orden();
 		String json = util.toJSON(documento);
 		
 		assertTrue(json instanceof String);
