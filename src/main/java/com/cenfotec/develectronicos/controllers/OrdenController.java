@@ -26,6 +26,7 @@ public class OrdenController {
 	private ArrayList <String> ordenesInventario;
 	private ArrayList <String> ordenesFacturacion;
 	private ArrayList <String> ordenesEntrega;
+	private DepartamentoController departamento;
 	
 	
 	public OrdenController() {
@@ -33,6 +34,7 @@ public class OrdenController {
 		this.ordenesInventario = new ArrayList<>();
 		this.ordenesFacturacion = new ArrayList<>();
 		this.ordenesEntrega = new ArrayList<>();
+		this.departamento = new DepartamentoController();
 	}
 	
 	public List<String> listarOrdenesCompra(){
@@ -135,6 +137,16 @@ public class OrdenController {
 		
 	}
 	
+	public void cargarOrdenes() {
+		
+		//esto podria hacerce mas bonito y menos "quemado"
+		ordenesCompra = (ArrayList<String>) dao.findAll("venta");
+		ordenesInventario = (ArrayList<String>) dao.findAll("inventario");
+		ordenesFacturacion = (ArrayList<String>) dao.findAll("facturacion");
+		ordenesEntrega = (ArrayList<String>) dao.findAll("entrega");
+		
+	}
+	
 	public Orden obtenerDocumento(String pIdDoc) {
 		
 		return null; 
@@ -144,9 +156,11 @@ public class OrdenController {
 	}
 	
 	//findAll
-	boolean procesarOrden(Orden ord, Empleado idDept) {
+	//listar filenames, desencryptar y cargar? (tambien se ecripta al guardar)
+	
+	boolean procesarOrden(Orden ord, Empleado emp) {
 		
-			return false;	
+			return this.departamento.procesarOrden(ord, emp);	
 		
 	}
 
