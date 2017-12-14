@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.cenfotec.develectronicos.data.DocumentoDAO;
 import com.cenfotec.develectronicos.entities.Documento;
+import com.cenfotec.develectronicos.entities.Empleado;
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
 import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
@@ -21,10 +22,10 @@ public class OrdenController {
 	DocumentoDAO dao = DAOFactory.crearDAO(DAOType.JSON_FILE);
 	private static EncryptManager encryptManager = new EncryptManager();
 	
-	private ArrayList <Orden> ordenesCompra;
-	private ArrayList <Orden> ordenesInventario;
-	private ArrayList <Orden> ordenesFacturacion;
-	private ArrayList <Orden> ordenesEntrega;
+	private ArrayList <String> ordenesCompra;
+	private ArrayList <String> ordenesInventario;
+	private ArrayList <String> ordenesFacturacion;
+	private ArrayList <String> ordenesEntrega;
 	
 	
 	public OrdenController() {
@@ -34,22 +35,22 @@ public class OrdenController {
 		this.ordenesEntrega = new ArrayList<>();
 	}
 	
-	public List<Orden> listarOrdenesCompra(){
+	public List<String> listarOrdenesCompra(){
 		return this.ordenesCompra;
 		
 	}
 	
-	public List<Orden> listarOrdenesInventario(){
+	public List<String> listarOrdenesInventario(){
 		return this.ordenesInventario;
 		
 	}
 	
-	public List<Orden> listarOrdenesFacturacion(){
+	public List<String> listarOrdenesFacturacion(){
 		return this.ordenesFacturacion;
 		
 	}
 	
-	public List<Orden> listarOrdenesEntrega(){
+	public List<String> listarOrdenesEntrega(){
 		return this.ordenesEntrega;
 		
 	}
@@ -99,6 +100,18 @@ public class OrdenController {
 		
 	}
 	
+	//cambiar por este... y borrar el dummy
+	public Orden seleccionarOrden(List<String> Ordenes, String idDoc, boolean dummy) {
+		
+		for(int i = 0; i<Ordenes.size(); i++) {
+			if(Ordenes.get(i) == idDoc) {
+				return obtenerDocumento(Ordenes.get(i));
+			}
+		}
+		//Orden no existe.
+		return null;
+	}
+	
 	public boolean procesarConsultarInventario(String productoId) {
 		return true;
 	}
@@ -115,8 +128,25 @@ public class OrdenController {
 		
 	}
 
-	public void actualizarOrden(Documento doc) {
-		// TODO Auto-generated method stub
+	public void actualizarOrden(Documento ord) {
+		// Es lo mismo que guardar...
+		guardarOrden(ord);
+
+		
+	}
+	
+	public Orden obtenerDocumento(String pIdDoc) {
+		
+		return null; 
+    //	hasta desencripta la wea
+		//valida empleado
+		
+	}
+	
+	//findAll
+	boolean procesarOrden(Orden ord, Empleado idDept) {
+		
+			return false;	
 		
 	}
 
