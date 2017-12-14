@@ -35,6 +35,7 @@ public class OrdenController {
 		this.ordenesFacturacion = new ArrayList<>();
 		this.ordenesEntrega = new ArrayList<>();
 		this.departamento = new DepartamentoController();
+		this.cargarOrdenes();
 	}
 	
 	public List<String> listarOrdenesCompra(){
