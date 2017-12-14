@@ -4,6 +4,7 @@ import com.cenfotec.develectronicos.controllers.GestorConsultaInventario;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
+import com.cenfotec.develectronicos.utils.enums.TipoOrden;
 
 public class IniciarConsultaInventarioState implements StateConsultaInventario {
 	
@@ -22,7 +23,7 @@ public class IniciarConsultaInventarioState implements StateConsultaInventario {
 		inventario.getDoc().setPasoActual(2);
 		this.tramiteInventario.setDoc(inventario);
 		
-		controller.crearOrden(tramiteInventario.getDoc());
+		controller.crearOrden(TipoOrden.OrdenInventario ,tramiteInventario.getDoc());
 		this.tramiteInventario.setState(this.tramiteInventario.getConsultaInventarioState());	
 	}
 
