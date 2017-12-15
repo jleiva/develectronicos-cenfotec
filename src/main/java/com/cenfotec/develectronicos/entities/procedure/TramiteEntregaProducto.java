@@ -4,14 +4,14 @@ import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateEntregaProducto;
-import com.cenfotec.develectronicos.entities.procedure.states.FinalizarEntregaProducto;
+import com.cenfotec.develectronicos.entities.procedure.states.FinalizarEntregaProductoState;
 import com.cenfotec.develectronicos.entities.procedure.states.IniciarEntregaProducto;
 import com.cenfotec.develectronicos.entities.procedure.states.NotificacionEntregaProducto;
 
 public class TramiteEntregaProducto extends Tramite {
 	IniciarEntregaProducto iniciarEntregaProducto;
 	NotificacionEntregaProducto notificacionEntrega;
-	FinalizarEntregaProducto finalizarEntregaProducto;
+	FinalizarEntregaProductoState finalizarEntregaProducto;
 	
 	StateEntregaProducto state;
 	
@@ -19,7 +19,7 @@ public class TramiteEntregaProducto extends Tramite {
 		super(doc);
 		iniciarEntregaProducto = new IniciarEntregaProducto();
 		notificacionEntrega = new NotificacionEntregaProducto();
-		finalizarEntregaProducto = new FinalizarEntregaProducto();
+		finalizarEntregaProducto = new FinalizarEntregaProductoState();
 		
 		setPasoActual();
 	}
@@ -67,11 +67,11 @@ public class TramiteEntregaProducto extends Tramite {
 		this.notificacionEntrega = notificacionEntrega;
 	}
 
-	public FinalizarEntregaProducto getFinalizarEntregaProducto() {
+	public FinalizarEntregaProductoState getFinalizarEntregaProducto() {
 		return finalizarEntregaProducto;
 	}
 
-	public void setFinalizarEntregaProducto(FinalizarEntregaProducto finalizarEntregaProducto) {
+	public void setFinalizarEntregaProducto(FinalizarEntregaProductoState finalizarEntregaProducto) {
 		this.finalizarEntregaProducto = finalizarEntregaProducto;
 	}
 

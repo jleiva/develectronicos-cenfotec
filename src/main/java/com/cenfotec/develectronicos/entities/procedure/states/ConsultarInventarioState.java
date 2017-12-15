@@ -1,6 +1,5 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
-import com.cenfotec.develectronicos.controllers.GestorConsultaInventario;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
@@ -34,6 +33,8 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 			inventario.setStockStatus(false);
 		}
 		
+		inventario.getDoc().setPasoActual(3);
+		
 		this.tramiteInventario.setDoc(inventario);
 		this.tramiteInventario.setState(this.tramiteInventario.getFinalizarTramiteConsultaInventario());
 		controller.actualizarOrden(this.tramiteInventario.getDoc());
@@ -41,15 +42,12 @@ public class ConsultarInventarioState implements StateConsultaInventario {
 
 	@Override
 	public void finalizarTramite() {
-		// TODO Auto-generated method stub
 		System.out.println("La orden de consulta de inventario ya esta en proceso....");
 	}
 
 
 	@Override
 	public void save() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

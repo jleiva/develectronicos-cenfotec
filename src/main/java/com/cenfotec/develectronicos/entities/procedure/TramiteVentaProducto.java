@@ -4,26 +4,27 @@ import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateVentaProducto;
-import com.cenfotec.develectronicos.entities.procedure.states.ConsultarInventarioVentaProducto;
-import com.cenfotec.develectronicos.entities.procedure.states.FinalizarVentaProducto;
-import com.cenfotec.develectronicos.entities.procedure.states.GenerarFacturacionVentaProducto;
+import com.cenfotec.develectronicos.entities.procedure.states.ConsultarInventarioVentaProductoState;
+import com.cenfotec.develectronicos.entities.procedure.states.FinalizarVentaProductoState;
+import com.cenfotec.develectronicos.entities.procedure.states.GenerarFacturacionVentaProductoState;
 import com.cenfotec.develectronicos.entities.procedure.states.IniciarVentaProducto;
 
 public class TramiteVentaProducto extends Tramite {
 	IniciarVentaProducto iniciarVentaProducto;
-	ConsultarInventarioVentaProducto consultarInventario;
-	GenerarFacturacionVentaProducto generarFactura;
-	FinalizarVentaProducto finalizarVentaProducto;
+	ConsultarInventarioVentaProductoState consultarInventario;
+	GenerarFacturacionVentaProductoState generarFactura;
+	FinalizarVentaProductoState finalizarVentaProducto;
 	
 	StateVentaProducto state;
-	public TramiteVentaProducto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public TramiteVentaProducto(Orden doc) {
 		super(doc);
-		// TODO Auto-generated constructor stub
+		iniciarVentaProducto = new IniciarVentaProducto(this);
+		consultarInventario = new ConsultarInventarioVentaProductoState(this);
+		generarFactura = new GenerarFacturacionVentaProductoState(this);
+		finalizarVentaProducto = new FinalizarVentaProductoState(this);
+		
+		setPasoActual();
 	}
 
 	@Override
@@ -64,27 +65,27 @@ public class TramiteVentaProducto extends Tramite {
 		this.iniciarVentaProducto = iniciarVentaProducto;
 	}
 
-	public ConsultarInventarioVentaProducto getConsultarInventario() {
+	public ConsultarInventarioVentaProductoState getConsultarInventario() {
 		return consultarInventario;
 	}
 
-	public void setConsultarInventario(ConsultarInventarioVentaProducto consultarInventario) {
+	public void setConsultarInventario(ConsultarInventarioVentaProductoState consultarInventario) {
 		this.consultarInventario = consultarInventario;
 	}
 
-	public GenerarFacturacionVentaProducto getGenerarFactura() {
+	public GenerarFacturacionVentaProductoState getGenerarFactura() {
 		return generarFactura;
 	}
 
-	public void setGenerarFactura(GenerarFacturacionVentaProducto generarFactura) {
+	public void setGenerarFactura(GenerarFacturacionVentaProductoState generarFactura) {
 		this.generarFactura = generarFactura;
 	}
 
-	public FinalizarVentaProducto getFinalizarVentaProducto() {
+	public FinalizarVentaProductoState getFinalizarVentaProducto() {
 		return finalizarVentaProducto;
 	}
 
-	public void setFinalizarVentaProducto(FinalizarVentaProducto finalizarVentaProducto) {
+	public void setFinalizarVentaProducto(FinalizarVentaProductoState finalizarVentaProducto) {
 		this.finalizarVentaProducto = finalizarVentaProducto;
 	}
 

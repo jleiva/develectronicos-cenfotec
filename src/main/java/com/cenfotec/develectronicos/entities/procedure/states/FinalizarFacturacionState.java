@@ -1,17 +1,13 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
-import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
-import com.cenfotec.develectronicos.entities.procedure.TramiteConsultaInventario;
-import com.cenfotec.develectronicos.entities.procedure.interfaces.StateConsultaInventario;
+import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
+import com.cenfotec.develectronicos.entities.procedure.TramiteFacturacion;
+import com.cenfotec.develectronicos.entities.procedure.interfaces.StateFacturacion;
 import com.cenfotec.develectronicos.utils.enums.EstadoTramite;
 
-public class FinalizarConsultaInventarioState implements StateConsultaInventario {
+public class FinalizarFacturacionState implements StateFacturacion {
 
-	private TramiteConsultaInventario tramiteInventario;
-	
-	public FinalizarConsultaInventarioState(TramiteConsultaInventario aThis) {
-		this.tramiteInventario = aThis;
-	}
+	private TramiteFacturacion tramiteFacturacion;
 	
 	@Override
 	public void iniciarTramite() {
@@ -19,7 +15,7 @@ public class FinalizarConsultaInventarioState implements StateConsultaInventario
 	}
 
 	@Override
-	public void consultarInventario() {
+	public void generarFacturaFisica() {
 		System.out.println("EL tramite ya esta en finalizando, pronto le indicaremos la respuesta....");
 	}
 
@@ -27,22 +23,23 @@ public class FinalizarConsultaInventarioState implements StateConsultaInventario
 	public void finalizarTramite() {
 		System.out.println("El tramite esta por finalizar....");
 		
-		OrdenInventario inventario = (OrdenInventario) (this.tramiteInventario.getDoc());
+		OrdenEntrega inventario = (OrdenEntrega) (this.tramiteFacturacion.getDoc());
 		if(inventario.getDoc().getEstado() == EstadoTramite.EnProceso) {
 			inventario.getDoc().setEstado(EstadoTramite.Finalizado);
-			this.tramiteInventario.setDoc(inventario);
-			controller.actualizarOrden(tramiteInventario.getDoc());
-		}		
-	}
-	
-	@Override
-	public void save() {
-		// TODO Auto-generated method stub
+			this.tramiteFacturacion.setDoc(inventario);
+			controller.actualizarOrden(tramiteFacturacion.getDoc());
+		}	
 	}
 
 	@Override
 	public void getEstadoActual() {
 		System.out.println("Paso: Finalizando Tramite");
+	}
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

@@ -1,7 +1,9 @@
 package com.cenfotec.develectronicos.entities.procedure.states;
 
+import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
 import com.cenfotec.develectronicos.entities.procedure.TramiteVentaProducto;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateVentaProducto;
+import com.cenfotec.develectronicos.utils.enums.TipoOrden;
 
 public class IniciarVentaProducto implements StateVentaProducto {
 
@@ -13,31 +15,33 @@ public class IniciarVentaProducto implements StateVentaProducto {
 	
 	@Override
 	public void iniciarTramite() {
+		OrdenCompra inventario = (OrdenCompra) (this.tramite.getDoc());
+		
+		inventario.getDoc().setPasoActual(2);
+		this.tramite.setDoc(inventario);
+		
+		controller.crearOrden(TipoOrden.OrdenInventario, tramite.getDoc());
 		this.tramite.setState(this.tramite.getConsultarInventario());
 	}
 
 	@Override
 	public void consultarInventario() {
-		// TODO Auto-generated method stub
-
+		System.out.println("El tramite esta en proceso de iniciar...");
 	}
 
 	@Override
 	public void generarOrdenFacturacion() {
-		// TODO Auto-generated method stub
-
+		System.out.println("El tramite esta en proceso de iniciar...");
 	}
 
 	@Override
 	public void finalizarTramite() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Aun falta pasos para que el tramite termine");
 	}
 
 	@Override
 	public void getEstadoActual() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Paso: Iniciando tramite...");
 	}
 
 	@Override
