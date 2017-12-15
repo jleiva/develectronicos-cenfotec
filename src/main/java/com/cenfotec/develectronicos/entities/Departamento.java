@@ -17,5 +17,11 @@ public class Departamento {
 	public String getNombreDept() {
 		return nombreDept;
 	}
+
+	@Override
+	public String toString() {
+		return "Departamento [" + (idDept != null ? "idDept=" + idDept + ", " : "")
+				+ (nombreDept != null ? "nombreDept=" + nombreDept : "") + "]";
+	}
 		
 }
