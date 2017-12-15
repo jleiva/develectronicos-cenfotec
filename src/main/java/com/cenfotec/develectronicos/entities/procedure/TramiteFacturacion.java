@@ -4,22 +4,22 @@ import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateFacturacion;
-import com.cenfotec.develectronicos.entities.procedure.states.FinalizarFacturacion;
-import com.cenfotec.develectronicos.entities.procedure.states.GenerarFacturaFisica;
+import com.cenfotec.develectronicos.entities.procedure.states.FinalizarFacturacionState;
+import com.cenfotec.develectronicos.entities.procedure.states.GenerarFacturaFisicaState;
 import com.cenfotec.develectronicos.entities.procedure.states.IniciarFacturacion;
 
 public class TramiteFacturacion extends Tramite {
 	IniciarFacturacion iniciarFacturacion;
-	GenerarFacturaFisica generarFactura;
-	FinalizarFacturacion finalizarFacturacion;
+	GenerarFacturaFisicaState generarFactura;
+	FinalizarFacturacionState finalizarFacturacion;
 	
 	StateFacturacion state;
 
 	public TramiteFacturacion(Orden doc) {
 		super(doc);
 		iniciarFacturacion = new IniciarFacturacion();
-		generarFactura = new GenerarFacturaFisica();
-		finalizarFacturacion = new FinalizarFacturacion();
+		generarFactura = new GenerarFacturaFisicaState();
+		finalizarFacturacion = new FinalizarFacturacionState();
 		setPasoActual();
 	}
 	
@@ -58,19 +58,19 @@ public class TramiteFacturacion extends Tramite {
 		this.iniciarFacturacion = iniciarFacturacion;
 	}
 
-	public GenerarFacturaFisica getGenerarFactura() {
+	public GenerarFacturaFisicaState getGenerarFactura() {
 		return generarFactura;
 	}
 
-	public void setGenerarFactura(GenerarFacturaFisica generarFactura) {
+	public void setGenerarFactura(GenerarFacturaFisicaState generarFactura) {
 		this.generarFactura = generarFactura;
 	}
 
-	public FinalizarFacturacion getFinalizarFacturacion() {
+	public FinalizarFacturacionState getFinalizarFacturacion() {
 		return finalizarFacturacion;
 	}
 	
-	public void setFinalizarFacturacion(FinalizarFacturacion finalizarFacturacion) {
+	public void setFinalizarFacturacion(FinalizarFacturacionState finalizarFacturacion) {
 		this.finalizarFacturacion = finalizarFacturacion;
 	}
 
