@@ -13,22 +13,9 @@ public class Contabilidad extends Departamento {
 	public Contabilidad() {
 		super(TipoDepartamento.CON.toString(), "CONTABILIDAD");
 	}
-
-	@Override
-	public String getIdDept() {
-		// TODO Auto-generated method stub
-		return super.getIdDept();
-	}
-
-	@Override
-	public String getNombreDept() {
-		// TODO Auto-generated method stub
-		return super.getNombreDept();
-	}
 	
-	public boolean procesarPago(int precio, String responsable) {
+	public boolean procesarPago(String idProducto) {
 		
-		//Crear ordenes de entrega?
 		return true;	
 		
 	}

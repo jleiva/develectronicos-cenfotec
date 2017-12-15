@@ -21,8 +21,9 @@ public class IniciarConsultaInventarioState implements StateConsultaInventario {
 		
 		inventario.getDoc().setPasoActual(2);
 		this.tramiteInventario.setDoc(inventario);
-		
+
 		controller.crearOrden(TipoOrden.OrdenInventario, tramiteInventario.getDoc());
+
 		this.tramiteInventario.setState(this.tramiteInventario.getConsultaInventarioState());	
 	}
 

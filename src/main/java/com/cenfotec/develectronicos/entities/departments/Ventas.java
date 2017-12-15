@@ -14,22 +14,9 @@ public class Ventas extends Departamento {
 		super(TipoDepartamento.VEN.toString(), "VENTAS");
 	}
 
-	@Override
-	public String getIdDept() {
-		// TODO Auto-generated method stub
-		return super.getIdDept();
-	}
-
-	@Override
-	public String getNombreDept() {
-		// TODO Auto-generated method stub
-		return super.getNombreDept();
-	}
-
-	public boolean aprobarCompra(boolean respuestaInventario) {
+	public boolean aprobarCompra(String idProducto) {
 		
-		//Genera orden de facturacion (if approved)
-		return respuestaInventario;
+		return true;
 		
 	}
 
