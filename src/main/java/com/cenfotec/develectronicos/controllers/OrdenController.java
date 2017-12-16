@@ -61,14 +61,13 @@ public class OrdenController {
 		Documento newOrd = ordFactory.crearOrden(tipo,ord);
 //		guardarOrden(newOrd);
 		return newOrd;
-		
 	}
 	
 
 	public void crearOrden(TipoOrden tipo, Documento ord) {
 		String idDoc = "-1";
 		String idDept = "-1";
-		String jsonDoc = SerializeDocument.toJSON(ord);
+		String jsonDoc = "";
 		
 		switch (tipo){
 			case OrdenCompra:
