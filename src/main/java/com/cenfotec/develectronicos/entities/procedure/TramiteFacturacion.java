@@ -1,5 +1,6 @@
 package com.cenfotec.develectronicos.entities.procedure;
 
+import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
@@ -15,7 +16,7 @@ public class TramiteFacturacion extends Tramite {
 	
 	StateFacturacion state;
 
-	public TramiteFacturacion(Orden doc) {
+	public TramiteFacturacion(Documento doc) {
 		super(doc);
 		iniciarFacturacion = new IniciarFacturacion();
 		generarFactura = new GenerarFacturaFisicaState();
