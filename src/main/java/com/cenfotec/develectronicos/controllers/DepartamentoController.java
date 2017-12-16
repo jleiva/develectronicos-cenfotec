@@ -5,6 +5,10 @@ import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.departments.Bodega;
 import com.cenfotec.develectronicos.entities.departments.Contabilidad;
 import com.cenfotec.develectronicos.entities.departments.Ventas;
+import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
+import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
+import com.cenfotec.develectronicos.entities.extras.OrdenFacturacion;
+import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 
 public class DepartamentoController {
 	
@@ -71,6 +75,74 @@ public class DepartamentoController {
 			
 			return this.isOrdenValidada();
 			
+		} else {
+			
+			return this.isEmpleadoValido();
+			
+		}
+
+	}
+	
+	public boolean procesarOrden(OrdenInventario ord, Empleado emp) {
+		
+		validarEmpleado(ord.getIdDep(), emp.getIdDept());
+		
+		if (isEmpleadoValido()) {
+		
+				this.setOrdenValidada(this.bod.consultarInventario(ord.getDoc().getProductoId()));
+				return this.isOrdenValidada();	
+				
+		} else {
+			
+			return this.isEmpleadoValido();
+			
+		}
+
+	}
+	
+	public boolean procesarOrden(OrdenCompra ord, Empleado emp) {
+		
+		validarEmpleado(ord.getIdDep(), emp.getIdDept());
+		
+		if (isEmpleadoValido()) {
+		
+				this.setOrdenValidada(this.vent.aprobarCompra(ord.getDoc().getProductoId()));
+				return this.isOrdenValidada();	
+				
+		} else {
+			
+			return this.isEmpleadoValido();
+			
+		}
+
+	}
+	
+	public boolean procesarOrden(OrdenFacturacion ord, Empleado emp) {
+		
+		validarEmpleado(ord.getIdDep(), emp.getIdDept());
+		
+		if (isEmpleadoValido()) {
+		
+				this.setOrdenValidada(this.cont.procesarPago(ord.getDoc().getProductoId()));
+				return this.isOrdenValidada();	
+				
+		} else {
+			
+			return this.isEmpleadoValido();
+			
+		}
+
+	}
+	
+	public boolean procesarOrden(OrdenEntrega ord, Empleado emp) {
+		
+		validarEmpleado(ord.getIdDep(), emp.getIdDept());
+		
+		if (isEmpleadoValido()) {
+		
+				this.setOrdenValidada(this.bod.entregarProducto(ord.getDoc().getProductoId()));
+				return this.isOrdenValidada();	
+				
 		} else {
 			
 			return this.isEmpleadoValido();
