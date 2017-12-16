@@ -153,20 +153,32 @@ public class OrdenController {
 		return true;
 	}
 	
-	public void procesarAprobarCompra() {
+	public boolean procesarConsultarInventario(OrdenInventario ord, Empleado emp) {
+		
+		return this.departamento.procesarOrden(ord, emp);	
 		
 	}
 	
-	public void procesarProcesarPago() {
+	public boolean procesarAprobarCompra(OrdenCompra ord, Empleado emp) {
+		
+		return this.departamento.procesarOrden(ord, emp);	
 		
 	}
 	
-	public void procesarEntregarProducto() {
+	public boolean procesarProcesarPago(OrdenFacturacion ord, Empleado emp) {
+		
+		return this.departamento.procesarOrden(ord, emp);	
+		
+	}
+	
+	public boolean procesarEntregarProducto(OrdenEntrega ord, Empleado emp) {
+		
+		return this.departamento.procesarOrden(ord, emp);	
 		
 	}
 
 	public void actualizarOrden(Documento ord) {
-		// Es lo mismo que guardar...
+
 		guardarOrden(ord);
 
 		
@@ -174,7 +186,6 @@ public class OrdenController {
 	
 	public void cargarOrdenes() {
 		
-		//esto podria hacerce mas bonito y menos "quemado"
 		ordenesCompra = (ArrayList<String>) dao.findAll("venta");
 		ordenesInventario = (ArrayList<String>) dao.findAll("inventario");
 		ordenesFacturacion = (ArrayList<String>) dao.findAll("facturacion");
@@ -189,9 +200,6 @@ public class OrdenController {
 		//valida empleado
 		
 	}
-	
-	//findAll
-	//listar filenames, desencryptar y cargar? (tambien se ecripta al guardar)
 	
 	boolean procesarOrden(Orden ord, Empleado emp) {
 		
