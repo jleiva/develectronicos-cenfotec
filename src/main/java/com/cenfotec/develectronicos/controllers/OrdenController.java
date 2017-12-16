@@ -63,24 +63,58 @@ public class OrdenController {
 		OrdenFactory ordFactory = new OrdenFactory();
 		Orden ord = new Orden(idDep,tipoTramite,responsable,idProd);
 		Documento newOrd = ordFactory.crearOrden(tipo,ord);
-		guardarOrden(newOrd);
+//		guardarOrden(newOrd);
 		return newOrd;
-		
 	}
 	
-	public Documento crearOrden(TipoOrden tipo, Documento ord) {
-	
-		OrdenFactory ordFactory = new OrdenFactory();
-		Documento newOrd = ordFactory.crearOrden(tipo,(Orden)ord);
-		guardarOrden(newOrd);
-		return newOrd;
-		
-	}
 
-	private void guardarOrden(Documento ord) {
-		String idDoc = ord.getIdDoc();
-		String idDept = ord.getIdDep();
-		String jsonDoc = SerializeDocument.toJSON(ord);
+	public void crearOrden(TipoOrden tipo, Documento ord) {
+		String idDoc = "-1";
+		String idDept = "-1";
+		String jsonDoc = "";
+		
+		switch (tipo){
+			case OrdenCompra:
+			
+				OrdenCompra compra = (OrdenCompra) ord;
+				idDoc = compra.getDoc().getIdDoc();
+				idDept = compra.getDoc().getIdDep();
+				
+				jsonDoc = SerializeDocument.toJSON(compra);
+				break;
+				
+			case OrdenEntrega:
+			
+				OrdenEntrega entrega = (OrdenEntrega) ord;
+				idDoc = entrega.getDoc().getIdDoc();
+				idDept = entrega.getDoc().getIdDep();
+				
+				jsonDoc = SerializeDocument.toJSON(entrega);
+				break;
+				
+			case OrdenFacturacion:
+			
+				OrdenFacturacion facturacion = (OrdenFacturacion) ord;
+				idDept = facturacion.getDoc().getIdDep();
+				idDoc = facturacion.getDoc().getIdDoc();
+				
+				jsonDoc = SerializeDocument.toJSON(facturacion);
+				break;
+			
+			case OrdenInventario:
+			
+				OrdenInventario inventario = (OrdenInventario) ord;
+				idDept = inventario.getDoc().getIdDep();
+				idDoc = inventario.getDoc().getIdDoc();
+				
+				jsonDoc = SerializeDocument.toJSON(inventario);
+				break;
+        }		
+		
+		guardarOrden(idDoc, idDept, jsonDoc);
+	}
+	
+	private void guardarOrden(String idDoc, String idDept, String jsonDoc) {
 		
 		try {
 			byte[] encryptedData = encryptManager.encryptMessage(jsonDoc, idDept+"-");
@@ -90,6 +124,7 @@ public class OrdenController {
 		}
 		
 	}
+
 	
 	public Orden seleccionarOrden(List<Orden> Ordenes, String idDoc) {
 		
@@ -98,7 +133,6 @@ public class OrdenController {
 				return Ordenes.get(i);
 			}
 		}
-		//Orden no existe.
 		return null;
 		
 	}

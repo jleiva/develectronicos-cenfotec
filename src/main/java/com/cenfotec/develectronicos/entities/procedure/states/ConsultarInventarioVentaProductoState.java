@@ -5,6 +5,7 @@ import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
 import com.cenfotec.develectronicos.entities.extras.OrdenInventario;
 import com.cenfotec.develectronicos.entities.procedure.TramiteVentaProducto;
 import com.cenfotec.develectronicos.entities.procedure.interfaces.StateVentaProducto;
+import com.cenfotec.develectronicos.utils.enums.TipoDepartamento;
 import com.cenfotec.develectronicos.utils.enums.TipoOrden;
 
 public class ConsultarInventarioVentaProductoState implements StateVentaProducto {
@@ -29,7 +30,7 @@ public class ConsultarInventarioVentaProductoState implements StateVentaProducto
 		OrdenInventario ordenInventario = new OrdenInventario(new Orden(), false);
 //		OrdenInventario ordenInventario;
 		if(compra.getIdOrdenConsulta() == "-1") {
-			ordenInventario = new OrdenInventario(new Orden(), false);
+			ordenInventario = new OrdenInventario(new Orden(TipoDepartamento.BOD.toString(), TipoOrden.OrdenInventario.toString(), "",""), false);
 			
 			controller.crearOrden(TipoOrden.OrdenInventario, ordenInventario);
 			

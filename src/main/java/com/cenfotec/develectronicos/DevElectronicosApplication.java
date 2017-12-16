@@ -16,7 +16,6 @@ public class DevElectronicosApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... arg0) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 }

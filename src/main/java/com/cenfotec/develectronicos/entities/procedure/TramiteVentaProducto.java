@@ -1,5 +1,6 @@
 package com.cenfotec.develectronicos.entities.procedure;
 
+import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.extras.OrdenCompra;
@@ -17,7 +18,7 @@ public class TramiteVentaProducto extends Tramite {
 	
 	StateVentaProducto state;
 
-	public TramiteVentaProducto(Orden doc) {
+	public TramiteVentaProducto(Documento doc) {
 		super(doc);
 		iniciarVentaProducto = new IniciarVentaProducto(this);
 		consultarInventario = new ConsultarInventarioVentaProductoState(this);

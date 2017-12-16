@@ -1,5 +1,6 @@
 package com.cenfotec.develectronicos.entities.procedure;
 
+import com.cenfotec.develectronicos.entities.Documento;
 import com.cenfotec.develectronicos.entities.Orden;
 import com.cenfotec.develectronicos.entities.Tramite;
 import com.cenfotec.develectronicos.entities.extras.OrdenEntrega;
@@ -15,7 +16,7 @@ public class TramiteEntregaProducto extends Tramite {
 	
 	StateEntregaProducto state;
 	
-	public TramiteEntregaProducto(Orden doc) {
+	public TramiteEntregaProducto(Documento doc) {
 		super(doc);
 		iniciarEntregaProducto = new IniciarEntregaProducto();
 		notificacionEntrega = new NotificacionEntregaProducto();
