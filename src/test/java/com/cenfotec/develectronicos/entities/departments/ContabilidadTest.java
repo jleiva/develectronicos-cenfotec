@@ -4,21 +4,27 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.cenfotec.develectronicos.utils.enums.TipoDepartamento;
+
 public class ContabilidadTest {
+	
+	Contabilidad cont = new Contabilidad();
 
 	@Test
 	public void testContabilidadStringString() {
-		fail("Not yet implemented"); // TODO
+		Contabilidad cont2 = new Contabilidad(TipoDepartamento.CON.toString(), "CONTABILIDAD");
+		
+		assertTrue(cont2 instanceof Contabilidad);
 	}
 
 	@Test
 	public void testContabilidad() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(cont instanceof Contabilidad);
 	}
 
 	@Test
 	public void testProcesarPago() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(cont.procesarPago("OPD-UYT"));
 	}
 
 }

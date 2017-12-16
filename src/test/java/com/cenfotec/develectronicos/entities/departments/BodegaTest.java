@@ -4,26 +4,33 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.cenfotec.develectronicos.utils.enums.TipoDepartamento;
+
 public class BodegaTest {
+	
+	Bodega bod = new Bodega();
 
 	@Test
 	public void testBodegaStringString() {
-		fail("Not yet implemented"); // TODO
+		
+		Bodega bod2 = new Bodega(TipoDepartamento.BOD.toString(), "BODEGA");
+		
+		assertTrue(bod2 instanceof Bodega);
 	}
 
 	@Test
 	public void testBodega() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(bod instanceof Bodega);
 	}
 
 	@Test
 	public void testConsultarInventario() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(bod.consultarInventario("OPD-UYT"));
 	}
 
 	@Test
 	public void testEntregarProducto() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(bod.entregarProducto("OPD-UYT"));
 	}
 
 }

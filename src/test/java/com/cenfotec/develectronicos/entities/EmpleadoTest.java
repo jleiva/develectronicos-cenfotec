@@ -4,36 +4,40 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.cenfotec.develectronicos.utils.enums.TipoDepartamento;
+
 public class EmpleadoTest {
+	
+	Empleado emp1 = new Empleado("L-desu","L-dono","007",TipoDepartamento.VEN.toString());
 
 	@Test
 	public void testEmpleado() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(emp1 instanceof Empleado);
 	}
 
 	@Test
 	public void testGetNombre() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(emp1.getNombre() == "L-desu");
 	}
 
 	@Test
 	public void testGetApellido() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(emp1.getApellido() == "L-dono");
 	}
 
 	@Test
 	public void testGetId() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(emp1.getId() == "007");
 	}
 
 	@Test
 	public void testGetIdDept() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(emp1.getIdDept() == TipoDepartamento.VEN.toString());
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented"); // TODO
+		 assertTrue(emp1.toString().contains(emp1.getNombre() + " " + emp1.getApellido()));
 	}
 
 }

@@ -4,21 +4,27 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.cenfotec.develectronicos.utils.enums.TipoDepartamento;
+
 public class VentasTest {
+	
+	Ventas vent = new Ventas();
 
 	@Test
 	public void testVentasStringString() {
-		fail("Not yet implemented"); // TODO
+		Ventas vent2 = new Ventas(TipoDepartamento.VEN.toString(), "VENTAS");
+		
+		assertTrue(vent2 instanceof Ventas);
 	}
 
 	@Test
 	public void testVentas() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(vent instanceof Ventas);
 	}
 
 	@Test
 	public void testAprobarCompra() {
-		fail("Not yet implemented"); // TODO
+		assertTrue(vent.aprobarCompra("OPD-UYT"));
 	}
 
 }
